@@ -15,5 +15,6 @@ import javax.persistence.Id;
 public class JavaTable extends RichEntity {
     @Id
     private Long id;
-
+    private String username;
+    private String password;
 }

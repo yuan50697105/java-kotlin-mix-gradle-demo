@@ -33,8 +33,8 @@ extra["springBootAdminVersion"] = "2.7.4"
 extra["springCloudVersion"] = "2021.0.4"
 
 dependencies {
+    implementation("org.projectlombok:lombok-mapstruct-binding:0.2.0")
     implementation("io.dapr:dapr-sdk-springboot:1.6.0")
-
     implementation("org.mapstruct:mapstruct:1.5.2.Final")
 //    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.2.Final")
 //    compileOnly("org.mapstruct:mapstruct-processor:1.5.2.Final")
@@ -83,6 +83,7 @@ dependencies {
     runtimeOnly("mysql:mysql-connector-java")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     annotationProcessor("org.projectlombok:lombok")
+//    kapt("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.springframework.amqp:spring-rabbit-test")

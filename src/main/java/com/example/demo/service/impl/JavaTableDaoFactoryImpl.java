@@ -3,6 +3,8 @@ package com.example.demo.service.impl;
 import cn.hutool.core.util.ObjectUtil;
 import com.example.demo.dao.JavaTableDao;
 import com.example.demo.entity.JavaTable;
+import com.example.demo.entity.dto.Pagination;
+import com.example.demo.entity.dto.JavaTableWrapper;
 import com.example.demo.service.JavaTableDaoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,15 +23,45 @@ public class JavaTableDaoFactoryImpl implements JavaTableDaoFactory {
         this.javaTableDaoMap = javaTableDao.stream().collect(Collectors.toMap(JavaTableDao::getType, Function.identity()));
     }
 
+    private JavaTableDao getJavaTableDao(String type) {
+        return javaTableDaoMap.get(type);
+    }
+
 
     @Override
     public void saveData(JavaTable data, String type) {
-        JavaTableDao javaTableDao = javaTableDaoMap.get(DaoType.getType(type));
+        JavaTableDao javaTableDao = getJavaTableDao(DaoType.getType(type));
         if (ObjectUtil.isNotEmpty(javaTableDao)) {
             javaTableDao.saveData(data);
         } else {
             throw new IllegalArgumentException(type);
         }
+    }
+
+    @Override
+    public void updateData(JavaTable javaTable, String type) {
+        getJavaTableDao(type).updateData(javaTable);
+    }
+
+    @Override
+    public JavaTable get(Long id, String type) {
+        JavaTableDao javaTableDao = getJavaTableDao(DaoType.getType(type));
+        return javaTableDao.get(id);
+    }
+
+    @Override
+    public List<JavaTable> getList(JavaTableWrapper wrapper, String type) {
+        return getJavaTableDao(type).getList(wrapper);
+    }
+
+    @Override
+    public Pagination<JavaTable> getPage(JavaTableWrapper wrapper, int page, int size, String type) {
+        return getJavaTableDao(type).getPage(wrapper, page, size);
+    }
+
+    @Override
+    public void deleteData(Long[] id, String type) {
+        getJavaTableDao(type).deleteData(id);
     }
 
 
