@@ -11,7 +11,7 @@ import javax.transaction.Transactional
 @Service
 class KotlinTablePlusDaoImpl : ServiceImpl<KotlinTableDaoMapper, KotlinTable>(), KotlinTableDao {
     override fun getType(): String {
-        return JavaTableDaoFactory.DaoType.PLUS.type
+        return JavaTableDaoFactory.DaoType.PLUS.name
     }
 
     @Transactional
