@@ -5,7 +5,7 @@ plugins {
     id("java")
     id("org.springframework.boot") version "2.7.4"
     id("io.spring.dependency-management") version "1.0.14.RELEASE"
-    id("org.asciidoctor.convert") version "1.5.8"
+//    id("org.asciidoctor.convert") version "1.5.8"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
@@ -115,12 +115,12 @@ tasks.withType<Test> {
 }
 
 //tasks.test {
-//	outputs.dir(snippetsDir)
+//	outputs.dir("${property("snippetsDir")}")
 //}
-
+//
 //tasks.asciidoctor {
-//	inputs.dir(snippetsDir)
-//	dependsOn(test)
+//	inputs.dir("${property("snippetsDir")}")
+//	dependsOn(tasks.test)
 //}
 
 kapt {
