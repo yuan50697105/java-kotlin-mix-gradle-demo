@@ -4,12 +4,8 @@ import cn.org.atool.fluent.mybatis.annotation.FluentMybatis
 import cn.org.atool.fluent.mybatis.base.RichEntity
 
 @FluentMybatis
-class KotlinTable : RichEntity() {
+open class KotlinTable : RichEntity() {
 
     var id: Long? = null
 
-    companion object{
-        const val a = "aaa"
-
-    }
 }

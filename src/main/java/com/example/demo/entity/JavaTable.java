@@ -11,10 +11,4 @@ import lombok.EqualsAndHashCode;
 public class JavaTable extends RichEntity {
     private Long id;
 
-    public JavaTable() {
-        String a = KotlinTable.a;
-        KotlinTable kotlinTable = new KotlinTable();
-        kotlinTable.setId(111L);
-
-    }
 }

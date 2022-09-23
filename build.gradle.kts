@@ -33,6 +33,8 @@ extra["springBootAdminVersion"] = "2.7.4"
 extra["springCloudVersion"] = "2021.0.4"
 
 dependencies {
+    implementation("io.dapr:dapr-sdk-springboot:1.6.0")
+
     implementation("org.mapstruct:mapstruct:1.5.2.Final")
 //    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.2.Final")
 //    compileOnly("org.mapstruct:mapstruct-processor:1.5.2.Final")
