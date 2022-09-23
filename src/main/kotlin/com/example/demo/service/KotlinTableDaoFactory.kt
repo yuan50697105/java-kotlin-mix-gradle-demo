@@ -7,11 +7,12 @@ interface KotlinTableDaoFactory {
     enum class DaoType {
         PLUS,
         FLUENT,
+        JPA
         ;
         companion object{
             fun getType(type: String):String {
                 for (value in values()) {
-                    if (value.name == type) {
+                    if (value.name.lowercase() == type.lowercase()) {
                         return value.name
                     }
 

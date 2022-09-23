@@ -6,23 +6,15 @@ public interface JavaTableDaoFactory {
     void saveData(JavaTable data, String type);
 
     enum DaoType {
-        PLUS("plus"),
-        FLUENT("fluent"),
+        PLUS,
+        FLUENT,
+        JPA,
         ;
 
-        private final String type;
-
-        DaoType(String type) {
-            this.type = type;
-        }
-
-        public String getType() {
-            return type;
-        }
 
         public static String getType(String type) {
             for (DaoType value : values()) {
-                if (value.type.equals(type)) {
+                if (value.name().equalsIgnoreCase(type)) {
                     return type;
                 }
             }

@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 public class JavaTablePlusDaoImpl extends ServiceImpl<JavaTableDaoMapper, JavaTable> implements JavaTableDao, IService<JavaTable> {
     @Override
     public String getType() {
-        return JavaTableDaoFactory.DaoType.PLUS.getType();
+        return JavaTableDaoFactory.DaoType.PLUS.name();
     }
 
     @Override

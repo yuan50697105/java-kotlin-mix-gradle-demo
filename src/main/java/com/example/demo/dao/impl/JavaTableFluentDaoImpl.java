@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 public class JavaTableFluentDaoImpl extends JavaTableBaseDao implements IBaseDao<JavaTable>, JavaTableDao {
     @Override
     public String getType() {
-        return JavaTableDaoFactory.DaoType.FLUENT.getType();
+        return JavaTableDaoFactory.DaoType.FLUENT.name();
     }
 
     @Override
