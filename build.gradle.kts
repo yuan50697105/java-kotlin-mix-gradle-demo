@@ -5,7 +5,6 @@ plugins {
     id("java")
     id("org.springframework.boot") version "2.7.4"
     id("io.spring.dependency-management") version "1.0.14.RELEASE"
-//    id("org.asciidoctor.convert") version "1.5.8"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
     kotlin("plugin.jpa") version "1.6.21"
@@ -28,7 +27,6 @@ repositories {
 
 }
 
-//extra["snippetsDir"] = file("build/generated-snippets")
 extra["springBootAdminVersion"] = "2.7.4"
 extra["springCloudVersion"] = "2021.0.4"
 
@@ -92,7 +90,6 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.springframework.amqp:spring-rabbit-test")
     testImplementation("org.springframework.batch:spring-batch-test")
-    testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
 }
 
 dependencyManagement {
@@ -113,15 +110,6 @@ tasks.withType<Test> {
     enabled = false
     useJUnitPlatform()
 }
-
-//tasks.test {
-//	outputs.dir("${property("snippetsDir")}")
-//}
-//
-//tasks.asciidoctor {
-//	inputs.dir("${property("snippetsDir")}")
-//	dependsOn(tasks.test)
-//}
 
 kapt {
     keepJavacAnnotationProcessors = true
