@@ -33,6 +33,10 @@ extra["springBootAdminVersion"] = "2.7.4"
 extra["springCloudVersion"] = "2021.0.4"
 
 dependencies {
+    implementation("com.fhs-opensource:easy-trans-spring-boot-starter:2.0.3")
+    implementation("com.fhs-opensource:easy-trans-tk-extend:2.0.3")
+    implementation("com.fhs-opensource:easy-trans-mybatis-plus-extend:2.0.3")
+    implementation("com.fhs-opensource:easy-trans-jpa-extend:2.0.3")
     implementation("org.projectlombok:lombok-mapstruct-binding:0.2.0")
     implementation("io.dapr:dapr-sdk-springboot:1.6.0")
     implementation("org.mapstruct:mapstruct:1.5.2.Final")
