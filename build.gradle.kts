@@ -117,7 +117,7 @@ tasks.withType<Test> {
 //tasks.test {
 //	outputs.dir(snippetsDir)
 //}
-//
+
 //tasks.asciidoctor {
 //	inputs.dir(snippetsDir)
 //	dependsOn(test)
