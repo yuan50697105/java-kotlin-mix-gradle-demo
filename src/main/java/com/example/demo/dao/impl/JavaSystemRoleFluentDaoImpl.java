@@ -2,10 +2,10 @@ package com.example.demo.dao.impl;
 
 import cn.org.atool.fluent.mybatis.base.IBaseDao;
 import com.example.demo.constants.JavaDaoType;
-import com.example.demo.dao.JavaSystemUserDao;
-import com.example.demo.dao.base.JavaSystemUserBaseDao;
-import com.example.demo.entity.JavaSystemUser;
-import com.example.demo.entity.dto.JavaSystemUserWrapper;
+import com.example.demo.dao.JavaSystemRoleDao;
+import com.example.demo.dao.base.JavaSystemRoleBaseDao;
+import com.example.demo.entity.JavaSystemRole;
+import com.example.demo.entity.dto.JavaSystemRoleWrapper;
 import com.example.demo.entity.dto.Pagination;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
-public class JavaSystemUserFluentDaoImpl extends JavaSystemUserBaseDao implements JavaSystemUserDao, IBaseDao<JavaSystemUser> {
+public class JavaSystemRoleFluentDaoImpl extends JavaSystemRoleBaseDao implements JavaSystemRoleDao, IBaseDao<JavaSystemRole> {
     @Override
     public String getType() {
         return JavaDaoType.FLUENT.name();
@@ -26,18 +26,18 @@ public class JavaSystemUserFluentDaoImpl extends JavaSystemUserBaseDao implement
 
     @Override
     @Transactional
-    public void saveData(JavaSystemUser javaSystemUser) {
+    public void saveData(JavaSystemRole javaSystemUser) {
         this.save(javaSystemUser);
     }
 
     @Override
     @Transactional
-    public void updateData(JavaSystemUser javaSystemUser) {
+    public void updateData(JavaSystemRole javaSystemUser) {
         this.updateById(javaSystemUser);
     }
 
     @Override
-    public JavaSystemUser get(Long id) {
+    public JavaSystemRole get(Long id) {
         return this.selectById(id);
     }
 
@@ -60,19 +60,19 @@ public class JavaSystemUserFluentDaoImpl extends JavaSystemUserBaseDao implement
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser) {
+    public List<JavaSystemRole> getList(JavaSystemRoleWrapper javaSystemUser) {
         return listEntity(query());
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser, int page, int size) {
+    public List<JavaSystemRole> getList(JavaSystemRoleWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
         return getList(javaSystemUser);
     }
 
     @Override
-    public Pagination<JavaSystemUser> getPage(JavaSystemUserWrapper javaSystemUser, int page, int size) {
+    public Pagination<JavaSystemRole> getPage(JavaSystemRoleWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
-        return new Pagination<JavaSystemUser>(new PageInfo<>(getList(javaSystemUser)));
+        return new Pagination<JavaSystemRole>(new PageInfo<>(getList(javaSystemUser)));
     }
 }

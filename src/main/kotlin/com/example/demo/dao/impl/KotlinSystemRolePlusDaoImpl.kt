@@ -3,30 +3,30 @@ package com.example.demo.dao.impl
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
 import com.example.demo.constants.KotlinDaoType
-import com.example.demo.dao.KotlinSystemUserDao
-import com.example.demo.entity.KotlinSystemUser
-import com.example.demo.entity.dto.KotlinSystemUserWrapper
+import com.example.demo.dao.KotlinSystemRoleDao
+import com.example.demo.entity.KotlinSystemRole
+import com.example.demo.entity.dto.KotlinSystemRoleWrapper
 import com.example.demo.entity.dto.Pagination
-import com.example.demo.mapper.KotlinSystemUserDaoMapper
+import com.example.demo.mapper.KotlinSystemRoleDaoMapper
 import org.springframework.stereotype.Service
 import javax.transaction.Transactional
 
 @Service
-class KotlinSystemUserDaoImpl : ServiceImpl<KotlinSystemUserDaoMapper, KotlinSystemUser>(), KotlinSystemUserDao {
+class KotlinSystemRolePlusDaoImpl : ServiceImpl<KotlinSystemRoleDaoMapper, KotlinSystemRole>(), KotlinSystemRoleDao {
     override fun getType(): String {
         return KotlinDaoType.PLUS.name
     }
 
     @Transactional
-    override fun updateData(kotlinTable: KotlinSystemUser) {
+    override fun updateData(kotlinTable: KotlinSystemRole) {
         this.updateById(kotlinTable)
     }
 
-    override fun get(id: Long): KotlinSystemUser {
+    override fun get(id: Long): KotlinSystemRole {
         return getById(id)
     }
 
-    override fun getList(wrapper: KotlinSystemUserWrapper): List<KotlinSystemUser> {
+    override fun getList(wrapper: KotlinSystemRoleWrapper): List<KotlinSystemRole> {
         return ktQuery().list()
     }
 
@@ -35,12 +35,12 @@ class KotlinSystemUserDaoImpl : ServiceImpl<KotlinSystemUserDaoMapper, KotlinSys
         this.removeByIds(id.asList())
     }
 
-    override fun getPage(wrapper: KotlinSystemUserWrapper, page: Int, size: Int): Pagination<KotlinSystemUser> {
+    override fun getPage(wrapper: KotlinSystemRoleWrapper, page: Int, size: Int): Pagination<KotlinSystemRole> {
         return Pagination(ktQuery().page(PageDTO(page.toLong(), size.toLong())))
     }
 
     @Transactional
-    override fun saveData(kotlinTable: KotlinSystemUser) {
+    override fun saveData(kotlinTable: KotlinSystemRole) {
         this.save(kotlinTable)
     }
 }

@@ -1,11 +1,11 @@
-package com.example.demo.service.impl
+package com.example.demo.dao.factory.impl
 
 import com.example.demo.constants.KotlinDaoType
 import com.example.demo.dao.KotlinSystemUserDao
+import com.example.demo.dao.factory.KotlinSystemUserDaoFactory
 import com.example.demo.entity.KotlinSystemUser
 import com.example.demo.entity.dto.KotlinSystemUserWrapper
 import com.example.demo.entity.dto.Pagination
-import com.example.demo.service.KotlinSystemUserDaoFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.function.Function

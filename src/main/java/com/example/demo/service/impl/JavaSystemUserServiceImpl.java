@@ -1,12 +1,12 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.converter.JavaSystemUserConverter;
+import com.example.demo.dao.factory.JavaSystemUserDaoFactory;
 import com.example.demo.entity.JavaSystemUser;
 import com.example.demo.entity.dto.JavaSystemUserAddDTO;
 import com.example.demo.entity.dto.JavaSystemUserUpdateDTO;
 import com.example.demo.entity.dto.JavaSystemUserWrapper;
 import com.example.demo.entity.dto.Pagination;
-import com.example.demo.service.JavaSystemUserDaoFactory;
 import com.example.demo.service.JavaSystemUserService;
 import org.springframework.stereotype.Service;
 

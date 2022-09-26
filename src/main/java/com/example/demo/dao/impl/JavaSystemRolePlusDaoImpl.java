@@ -3,11 +3,11 @@ package com.example.demo.dao.impl;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.constants.JavaDaoType;
-import com.example.demo.dao.JavaSystemUserDao;
-import com.example.demo.entity.JavaSystemUser;
-import com.example.demo.entity.dto.JavaSystemUserWrapper;
+import com.example.demo.dao.JavaSystemRoleDao;
+import com.example.demo.entity.JavaSystemRole;
+import com.example.demo.entity.dto.JavaSystemRoleWrapper;
 import com.example.demo.entity.dto.Pagination;
-import com.example.demo.mapper.JavaSystemUserDaoMapper;
+import com.example.demo.mapper.JavaSystemRoleDaoMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
@@ -19,7 +19,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
-public class JavaSystemUserPlusDaoImpl extends ServiceImpl<JavaSystemUserDaoMapper, JavaSystemUser> implements JavaSystemUserDao, IService<JavaSystemUser> {
+public class JavaSystemRolePlusDaoImpl extends ServiceImpl<JavaSystemRoleDaoMapper, JavaSystemRole> implements JavaSystemRoleDao, IService<JavaSystemRole> {
     @Override
     public String getType() {
         return JavaDaoType.PLUS.name();
@@ -27,18 +27,18 @@ public class JavaSystemUserPlusDaoImpl extends ServiceImpl<JavaSystemUserDaoMapp
 
     @Override
     @Transactional
-    public void saveData(JavaSystemUser javaSystemUser) {
+    public void saveData(JavaSystemRole javaSystemUser) {
         this.save(javaSystemUser);
     }
 
     @Override
     @Transactional
-    public void updateData(JavaSystemUser javaSystemUser) {
+    public void updateData(JavaSystemRole javaSystemUser) {
         this.updateData(javaSystemUser);
     }
 
     @Override
-    public JavaSystemUser get(Long id) {
+    public JavaSystemRole get(Long id) {
         return getById(id);
     }
 
@@ -61,18 +61,18 @@ public class JavaSystemUserPlusDaoImpl extends ServiceImpl<JavaSystemUserDaoMapp
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser) {
+    public List<JavaSystemRole> getList(JavaSystemRoleWrapper javaSystemUser) {
         return lambdaQuery().list();
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser, int page, int size) {
+    public List<JavaSystemRole> getList(JavaSystemRoleWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
         return getList(javaSystemUser);
     }
 
     @Override
-    public Pagination<JavaSystemUser> getPage(JavaSystemUserWrapper javaSystemUser, int page, int size) {
+    public Pagination<JavaSystemRole> getPage(JavaSystemRoleWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
         return new Pagination<>(new PageInfo<>(getList(javaSystemUser)));
     }

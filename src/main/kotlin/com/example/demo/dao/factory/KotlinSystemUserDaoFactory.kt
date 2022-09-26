@@ -1,4 +1,4 @@
-package com.example.demo.service
+package com.example.demo.dao.factory
 
 import com.example.demo.entity.KotlinSystemUser
 import com.example.demo.entity.dto.KotlinSystemUserWrapper

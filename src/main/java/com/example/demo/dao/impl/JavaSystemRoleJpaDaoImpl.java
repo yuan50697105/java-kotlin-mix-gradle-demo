@@ -1,11 +1,11 @@
 package com.example.demo.dao.impl;
 
 import com.example.demo.constants.JavaDaoType;
-import com.example.demo.dao.JavaSystemUserDao;
-import com.example.demo.entity.JavaSystemUser;
-import com.example.demo.entity.dto.JavaSystemUserWrapper;
+import com.example.demo.dao.JavaSystemRoleDao;
+import com.example.demo.entity.JavaSystemRole;
+import com.example.demo.entity.dto.JavaSystemRoleWrapper;
 import com.example.demo.entity.dto.Pagination;
-import com.example.demo.repository.JavaSystemUserRepository;
+import com.example.demo.repository.JavaSystemRoleRepository;
 import com.google.common.collect.Lists;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -16,10 +16,10 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
-public class JavaSystemUserJpaDaoImpl implements JavaSystemUserDao {
-    private final JavaSystemUserRepository repository;
+public class JavaSystemRoleJpaDaoImpl implements JavaSystemRoleDao {
+    private final JavaSystemRoleRepository repository;
 
-    public JavaSystemUserJpaDaoImpl(JavaSystemUserRepository repository) {
+    public JavaSystemRoleJpaDaoImpl(JavaSystemRoleRepository repository) {
         this.repository = repository;
     }
 
@@ -30,17 +30,17 @@ public class JavaSystemUserJpaDaoImpl implements JavaSystemUserDao {
 
     @Override
     @Transactional
-    public void saveData(JavaSystemUser javaSystemUser) {
+    public void saveData(JavaSystemRole javaSystemUser) {
         repository.save(javaSystemUser);
     }
 
     @Override
-    public void updateData(JavaSystemUser javaSystemUser) {
+    public void updateData(JavaSystemRole javaSystemUser) {
         repository.save(javaSystemUser);
     }
 
     @Override
-    public JavaSystemUser get(Long id) {
+    public JavaSystemRole get(Long id) {
         return repository.findById(id).orElse(null);
     }
 
@@ -62,17 +62,17 @@ public class JavaSystemUserJpaDaoImpl implements JavaSystemUserDao {
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser) {
+    public List<JavaSystemRole> getList(JavaSystemRoleWrapper javaSystemUser) {
         return repository.findAll();
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser, int page, int size) {
+    public List<JavaSystemRole> getList(JavaSystemRoleWrapper javaSystemUser, int page, int size) {
         return getPage(javaSystemUser, page, size).getData();
     }
 
     @Override
-    public Pagination<JavaSystemUser> getPage(JavaSystemUserWrapper javaSystemUser, int page, int size) {
+    public Pagination<JavaSystemRole> getPage(JavaSystemRoleWrapper javaSystemUser, int page, int size) {
         return new Pagination<>(repository.findAll(PageRequest.of(page <= 1 ? 0 : page - 1, size)));
     }
 }

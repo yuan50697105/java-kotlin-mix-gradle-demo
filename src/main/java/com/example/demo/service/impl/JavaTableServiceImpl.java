@@ -1,12 +1,12 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.converter.JavaTableConverter;
+import com.example.demo.dao.factory.JavaTableDaoFactory;
 import com.example.demo.entity.JavaTable;
-import com.example.demo.entity.dto.Pagination;
 import com.example.demo.entity.dto.JavaTableAddDTO;
 import com.example.demo.entity.dto.JavaTableUpdateDTO;
 import com.example.demo.entity.dto.JavaTableWrapper;
-import com.example.demo.service.JavaTableDaoFactory;
+import com.example.demo.entity.dto.Pagination;
 import com.example.demo.service.JavaTableService;
 import org.springframework.stereotype.Service;
 

@@ -1,12 +1,12 @@
 package com.example.demo.service.impl
 
 import com.example.demo.converter.KotlinSystemUserConverter
+import com.example.demo.dao.factory.KotlinSystemUserDaoFactory
 import com.example.demo.entity.KotlinSystemUser
 import com.example.demo.entity.dto.KotlinSystemUserAddDTO
 import com.example.demo.entity.dto.KotlinSystemUserUpdateDTO
 import com.example.demo.entity.dto.KotlinSystemUserWrapper
 import com.example.demo.entity.dto.Pagination
-import com.example.demo.service.KotlinSystemUserDaoFactory
 import com.example.demo.service.KotlinSystemUserService
 import org.springframework.stereotype.Service
 

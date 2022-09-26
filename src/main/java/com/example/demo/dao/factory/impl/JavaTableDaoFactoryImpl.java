@@ -1,12 +1,12 @@
-package com.example.demo.service.impl;
+package com.example.demo.dao.factory.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.example.demo.constants.JavaDaoType;
 import com.example.demo.dao.JavaTableDao;
+import com.example.demo.dao.factory.JavaTableDaoFactory;
 import com.example.demo.entity.JavaTable;
 import com.example.demo.entity.dto.JavaTableWrapper;
 import com.example.demo.entity.dto.Pagination;
-import com.example.demo.service.JavaTableDaoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,12 +1,12 @@
 package com.example.demo.service.impl
 
 import com.example.demo.converter.KotlinTableConverter
+import com.example.demo.dao.factory.KotlinTableDaoFactory
 import com.example.demo.entity.KotlinTable
 import com.example.demo.entity.dto.KotlinTableAddDTO
 import com.example.demo.entity.dto.KotlinTableUpdateDTO
 import com.example.demo.entity.dto.KotlinTableWrapper
 import com.example.demo.entity.dto.Pagination
-import com.example.demo.service.KotlinTableDaoFactory
 import com.example.demo.service.KotlinTableService
 import org.springframework.stereotype.Service
 

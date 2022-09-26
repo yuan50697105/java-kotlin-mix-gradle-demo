@@ -1,12 +1,12 @@
-package com.example.demo.service.impl;
+package com.example.demo.dao.factory.impl;
 
 import cn.hutool.core.util.ObjUtil;
 import com.example.demo.constants.JavaDaoType;
 import com.example.demo.dao.JavaSystemUserDao;
+import com.example.demo.dao.factory.JavaSystemUserDaoFactory;
 import com.example.demo.entity.JavaSystemUser;
 import com.example.demo.entity.dto.JavaSystemUserWrapper;
 import com.example.demo.entity.dto.Pagination;
-import com.example.demo.service.JavaSystemUserDaoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +18,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class JavaSystemUserDaoFactoryImpl implements JavaSystemUserDaoFactory {
-    private final Map<String, JavaSystemUserDao> systemUserDaoMap;
+    private final Map<String, JavaSystemUserDao> daoMap;
 
     @Autowired
     public JavaSystemUserDaoFactoryImpl(List<JavaSystemUserDao> systemUserDaoList) {
-        this.systemUserDaoMap = systemUserDaoList.stream().collect(Collectors.toMap(JavaSystemUserDao::getType, Function.identity()));
+        this.daoMap = systemUserDaoList.stream().collect(Collectors.toMap(JavaSystemUserDao::getType, Function.identity()));
     }
 
     @Override
@@ -72,7 +72,7 @@ public class JavaSystemUserDaoFactoryImpl implements JavaSystemUserDaoFactory {
     }
 
     private JavaSystemUserDao getJavaSystemUserDao(String type) {
-        JavaSystemUserDao javaSystemUserDao = systemUserDaoMap.get(JavaDaoType.getType(type));
+        JavaSystemUserDao javaSystemUserDao = daoMap.get(JavaDaoType.getType(type));
         if (ObjUtil.isNotEmpty(javaSystemUserDao)) {
             return javaSystemUserDao;
         } else {
