@@ -2,6 +2,7 @@ package com.example.demo.service.impl
 
 import com.example.demo.converter.KotlinSystemRoleConverter
 import com.example.demo.dao.factory.KotlinSystemRoleDaoFactory
+import com.example.demo.dao.factory.KotlinSystemUserRoleDaoFactory
 import com.example.demo.entity.KotlinSystemRole
 import com.example.demo.entity.dto.KotlinSystemRoleAddDTO
 import com.example.demo.entity.dto.KotlinSystemRoleUpdateDTO
@@ -9,10 +10,12 @@ import com.example.demo.entity.dto.KotlinSystemRoleWrapper
 import com.example.demo.entity.dto.Pagination
 import com.example.demo.service.KotlinSystemRoleService
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class KotlinSystemRoleServiceImpl(
     private val kotlinTableDaoFactory: KotlinSystemRoleDaoFactory,
+    private val kotlinSystemUserRoleDaoFactory: KotlinSystemUserRoleDaoFactory,
     private val kotlinTableConverter: KotlinSystemRoleConverter
 ) :
     KotlinSystemRoleService {
@@ -44,7 +47,10 @@ class KotlinSystemRoleServiceImpl(
         return kotlinTableDaoFactory.getPage(wrapper, page, size, type)
     }
 
+    @Transactional
     override fun deleteData(id: Array<Long>, type: String) {
         kotlinTableDaoFactory.deleteData(id, type)
+        kotlinSystemUserRoleDaoFactory.deleteDataByRoleIds(type, id)
+
     }
 }

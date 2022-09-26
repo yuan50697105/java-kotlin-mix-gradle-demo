@@ -45,4 +45,5 @@ class KotlinSystemRoleFluentDaoImpl : KotlinSystemRoleBaseDao(), KotlinSystemRol
     override fun saveData(kotlinTable: KotlinSystemRole) {
         this.save<KotlinSystemRole>(kotlinTable)
     }
+
 }

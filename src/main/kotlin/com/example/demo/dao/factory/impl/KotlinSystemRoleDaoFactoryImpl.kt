@@ -8,6 +8,7 @@ import com.example.demo.entity.dto.KotlinSystemRoleWrapper
 import com.example.demo.entity.dto.Pagination
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.util.function.Function
 import java.util.stream.Collectors
 
@@ -21,6 +22,7 @@ class KotlinSystemRoleDaoFactoryImpl @Autowired constructor(kotlinTableDao: List
             kotlinTableDao.stream().collect(Collectors.toMap(KotlinSystemRoleDao::getType, Function.identity()))
     }
 
+    @Transactional
     override fun updateData(convertForUpdate: KotlinSystemRole, type: String) {
         kotlinTableDao(type)?.updateData(convertForUpdate)
     }
@@ -29,6 +31,7 @@ class KotlinSystemRoleDaoFactoryImpl @Autowired constructor(kotlinTableDao: List
         return kotlinTableDao(type)?.get(id)
     }
 
+    @Transactional
     override fun deleteData(id: Array<Long>, type: String) {
         kotlinTableDao(type)?.deleteData(id)
     }

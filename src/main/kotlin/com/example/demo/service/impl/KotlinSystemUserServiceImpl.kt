@@ -2,6 +2,7 @@ package com.example.demo.service.impl
 
 import com.example.demo.converter.KotlinSystemUserConverter
 import com.example.demo.dao.factory.KotlinSystemUserDaoFactory
+import com.example.demo.dao.factory.KotlinSystemUserRoleDaoFactory
 import com.example.demo.entity.KotlinSystemUser
 import com.example.demo.entity.dto.KotlinSystemUserAddDTO
 import com.example.demo.entity.dto.KotlinSystemUserUpdateDTO
@@ -12,27 +13,29 @@ import org.springframework.stereotype.Service
 
 @Service
 class KotlinSystemUserServiceImpl(
-    private val kotlinTableDaoFactory: KotlinSystemUserDaoFactory,
+    private val kotlinSystemUserDaoFactory: KotlinSystemUserDaoFactory,
+    private val kotlinSystemUserRoleDaoFactory: KotlinSystemUserRoleDaoFactory,
     private val kotlinTableConverter: KotlinSystemUserConverter
 ) :
     KotlinSystemUserService {
     override fun saveData(kotlinTable: KotlinSystemUserAddDTO, type: String) {
         val table = kotlinTableConverter.convertForAdd(kotlinTable)
-        kotlinTableDaoFactory.saveData(table, type)
+        kotlinSystemUserDaoFactory.saveData(table, type)
+        kotlinSystemUserRoleDaoFactory.saveData(type, table.id, kotlinTable.roleIds)
     }
 
     override fun updateData(table: KotlinSystemUserUpdateDTO, type: String) {
         val kotlinTable = kotlinTableConverter.convertForUpdate(table)
-        kotlinTableDaoFactory.updateData(kotlinTable, type)
-
+        kotlinSystemUserDaoFactory.updateData(kotlinTable, type)
+        kotlinSystemUserRoleDaoFactory.updateData(type, kotlinTable.id, table.roleIds)
     }
 
     override fun get(id: Long, type: String): KotlinSystemUser? {
-        return kotlinTableDaoFactory.get(id, type)
+        return kotlinSystemUserDaoFactory.get(id, type)
     }
 
     override fun getList(wrapper: KotlinSystemUserWrapper, type: String): List<KotlinSystemUser>? {
-        return kotlinTableDaoFactory.getList(wrapper, type)
+        return kotlinSystemUserDaoFactory.getList(wrapper, type)
     }
 
     override fun getPage(
@@ -41,10 +44,12 @@ class KotlinSystemUserServiceImpl(
         size: Int,
         type: String
     ): Pagination<KotlinSystemUser>? {
-        return kotlinTableDaoFactory.getPage(wrapper, page, size, type)
+        return kotlinSystemUserDaoFactory.getPage(wrapper, page, size, type)
     }
 
     override fun deleteData(id: Array<Long>, type: String) {
-        kotlinTableDaoFactory.deleteData(id, type)
+        kotlinSystemUserDaoFactory.deleteData(id, type)
+        kotlinSystemUserRoleDaoFactory.deleteDataByUserIds(type, id)
+
     }
 }

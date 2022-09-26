@@ -43,4 +43,5 @@ class KotlinSystemRolePlusDaoImpl : ServiceImpl<KotlinSystemRoleDaoMapper, Kotli
     override fun saveData(kotlinTable: KotlinSystemRole) {
         this.save(kotlinTable)
     }
+
 }
