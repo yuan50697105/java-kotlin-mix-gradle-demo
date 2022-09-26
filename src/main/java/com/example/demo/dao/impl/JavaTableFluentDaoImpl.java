@@ -1,12 +1,12 @@
 package com.example.demo.dao.impl;
 
 import cn.org.atool.fluent.mybatis.base.IBaseDao;
+import com.example.demo.constants.DaoType;
 import com.example.demo.dao.JavaTableDao;
 import com.example.demo.dao.base.JavaTableBaseDao;
 import com.example.demo.entity.JavaTable;
-import com.example.demo.entity.dto.Pagination;
 import com.example.demo.entity.dto.JavaTableWrapper;
-import com.example.demo.service.JavaTableDaoFactory;
+import com.example.demo.entity.dto.Pagination;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ import java.util.List;
 public class JavaTableFluentDaoImpl extends JavaTableBaseDao implements IBaseDao<JavaTable>, JavaTableDao {
     @Override
     public String getType() {
-        return JavaTableDaoFactory.DaoType.FLUENT.name();
+        return DaoType.FLUENT.name();
     }
 
     @Override

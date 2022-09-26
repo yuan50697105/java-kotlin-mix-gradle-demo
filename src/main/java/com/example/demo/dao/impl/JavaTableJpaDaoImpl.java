@@ -1,11 +1,11 @@
 package com.example.demo.dao.impl;
 
+import com.example.demo.constants.DaoType;
 import com.example.demo.dao.JavaTableDao;
 import com.example.demo.entity.JavaTable;
-import com.example.demo.entity.dto.Pagination;
 import com.example.demo.entity.dto.JavaTableWrapper;
+import com.example.demo.entity.dto.Pagination;
 import com.example.demo.repository.JavaTableRepository;
-import com.example.demo.service.JavaTableDaoFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ public class JavaTableJpaDaoImpl implements JavaTableDao {
 
     @Override
     public String getType() {
-        return JavaTableDaoFactory.DaoType.JPA.name();
+        return DaoType.JPA.name();
     }
 
     @Override
@@ -50,7 +50,7 @@ public class JavaTableJpaDaoImpl implements JavaTableDao {
 
     @Override
     public Pagination<JavaTable> getPage(JavaTableWrapper wrapper, int page, int size) {
-        return new Pagination<JavaTable>(javaTableRepository.findAll(PageRequest.of(page<=1?0:page,size)));
+        return new Pagination<>(javaTableRepository.findAll(PageRequest.of(page <= 1 ? 0 : page - 1, size)));
     }
 
     @Override

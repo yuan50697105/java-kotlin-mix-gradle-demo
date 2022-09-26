@@ -2,20 +2,19 @@ package com.example.demo.dao.impl
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
+import com.example.demo.constants.DaoType
 import com.example.demo.dao.KotlinTableDao
 import com.example.demo.entity.KotlinTable
 import com.example.demo.entity.dto.KotlinTableWrapper
 import com.example.demo.entity.dto.Pagination
 import com.example.demo.mapper.KotlinTableDaoMapper
-import com.example.demo.service.JavaTableDaoFactory
 import org.springframework.stereotype.Service
-import java.util.Arrays
 import javax.transaction.Transactional
 
 @Service
 class KotlinTablePlusDaoImpl : ServiceImpl<KotlinTableDaoMapper, KotlinTable>(), KotlinTableDao {
     override fun getType(): String {
-        return JavaTableDaoFactory.DaoType.PLUS.name
+        return DaoType.PLUS.name
     }
 
     @Transactional
