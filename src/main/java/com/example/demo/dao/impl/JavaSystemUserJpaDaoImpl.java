@@ -3,6 +3,7 @@ package com.example.demo.dao.impl;
 import com.example.demo.constants.DaoType;
 import com.example.demo.dao.JavaSystemUserDao;
 import com.example.demo.entity.JavaSystemUser;
+import com.example.demo.entity.dto.JavaSystemUserWrapper;
 import com.example.demo.entity.dto.Pagination;
 import com.example.demo.repository.JavaSystemUserRepository;
 import com.google.common.collect.Lists;
@@ -61,17 +62,17 @@ public class JavaSystemUserJpaDaoImpl implements JavaSystemUserDao {
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUser javaSystemUser) {
+    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser) {
         return javaSystemUserRepository.findAll();
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUser javaSystemUser, int page, int size) {
+    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser, int page, int size) {
         return getPage(javaSystemUser, page, size).getData();
     }
 
     @Override
-    public Pagination<JavaSystemUser> getPage(JavaSystemUser javaSystemUser, int page, int size) {
+    public Pagination<JavaSystemUser> getPage(JavaSystemUserWrapper javaSystemUser, int page, int size) {
         return new Pagination<>(javaSystemUserRepository.findAll(PageRequest.of(page <= 1 ? 0 : page - 1, size)));
     }
 }

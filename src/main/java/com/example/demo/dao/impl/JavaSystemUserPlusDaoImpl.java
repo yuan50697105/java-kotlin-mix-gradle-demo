@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.constants.DaoType;
 import com.example.demo.dao.JavaSystemUserDao;
 import com.example.demo.entity.JavaSystemUser;
+import com.example.demo.entity.dto.JavaSystemUserWrapper;
 import com.example.demo.entity.dto.Pagination;
 import com.example.demo.mapper.JavaSystemUserDaoMapper;
 import com.github.pagehelper.PageHelper;
@@ -60,18 +61,18 @@ public class JavaSystemUserPlusDaoImpl extends ServiceImpl<JavaSystemUserDaoMapp
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUser javaSystemUser) {
+    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser) {
         return lambdaQuery().list();
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUser javaSystemUser, int page, int size) {
+    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
         return getList(javaSystemUser);
     }
 
     @Override
-    public Pagination<JavaSystemUser> getPage(JavaSystemUser javaSystemUser, int page, int size) {
+    public Pagination<JavaSystemUser> getPage(JavaSystemUserWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
         return new Pagination<>(new PageInfo<>(getList(javaSystemUser)));
     }

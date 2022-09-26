@@ -7,11 +7,9 @@ import com.example.demo.entity.dto.JavaTableDTO;
 import com.example.demo.entity.dto.JavaTableUpdateDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
-import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring", unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface JavaTableConverter {
-    JavaTableConverter INSTANCE = Mappers.getMapper(JavaTableConverter.class);
 
     JavaTableDTO poToDto(JavaTable javaTable);
 

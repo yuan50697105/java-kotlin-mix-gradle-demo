@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @EqualsAndHashCode(callSuper = true)
@@ -16,6 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "system_user")
 public class JavaSystemUser extends RichEntity {
+    @Id
     private Long id;
     private String username;
     private String password;

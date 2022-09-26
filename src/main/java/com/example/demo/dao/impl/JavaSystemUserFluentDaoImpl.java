@@ -5,6 +5,7 @@ import com.example.demo.constants.DaoType;
 import com.example.demo.dao.JavaSystemUserDao;
 import com.example.demo.dao.base.JavaSystemUserBaseDao;
 import com.example.demo.entity.JavaSystemUser;
+import com.example.demo.entity.dto.JavaSystemUserWrapper;
 import com.example.demo.entity.dto.Pagination;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -59,18 +60,18 @@ public class JavaSystemUserFluentDaoImpl extends JavaSystemUserBaseDao implement
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUser javaSystemUser) {
+    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser) {
         return listEntity(query());
     }
 
     @Override
-    public List<JavaSystemUser> getList(JavaSystemUser javaSystemUser, int page, int size) {
+    public List<JavaSystemUser> getList(JavaSystemUserWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
         return getList(javaSystemUser);
     }
 
     @Override
-    public Pagination<JavaSystemUser> getPage(JavaSystemUser javaSystemUser, int page, int size) {
+    public Pagination<JavaSystemUser> getPage(JavaSystemUserWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
         return new Pagination<JavaSystemUser>(new PageInfo<>(getList(javaSystemUser)));
     }

@@ -4,6 +4,7 @@ import cn.hutool.core.util.ObjUtil;
 import com.example.demo.constants.DaoType;
 import com.example.demo.dao.JavaSystemUserDao;
 import com.example.demo.entity.JavaSystemUser;
+import com.example.demo.entity.dto.JavaSystemUserWrapper;
 import com.example.demo.entity.dto.Pagination;
 import com.example.demo.service.JavaSystemUserDaoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,17 +57,17 @@ public class JavaSystemUserDaoFactoryImpl implements JavaSystemUserDaoFactory {
     }
 
     @Override
-    public List<JavaSystemUser> getList(String type, JavaSystemUser javaSystemUser) {
+    public List<JavaSystemUser> getList(String type, JavaSystemUserWrapper javaSystemUser) {
         return getJavaSystemUserDao(type).getList(javaSystemUser);
     }
 
     @Override
-    public List<JavaSystemUser> getList(String type, JavaSystemUser javaSystemUser, int page, int size) {
+    public List<JavaSystemUser> getList(String type, JavaSystemUserWrapper javaSystemUser, int page, int size) {
         return getJavaSystemUserDao(type).getList(javaSystemUser, page, size);
     }
 
     @Override
-    public Pagination<JavaSystemUser> getPage(String type, JavaSystemUser javaSystemUser, int page, int size) {
+    public Pagination<JavaSystemUser> getPage(String type, JavaSystemUserWrapper javaSystemUser, int page, int size) {
         return getJavaSystemUserDao(type).getPage(javaSystemUser, page, size);
     }
 

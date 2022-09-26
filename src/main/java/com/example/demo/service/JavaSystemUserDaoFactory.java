@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.JavaSystemUser;
+import com.example.demo.entity.dto.JavaSystemUserWrapper;
 import com.example.demo.entity.dto.Pagination;
 
 import java.util.Collection;
@@ -20,9 +21,9 @@ public interface JavaSystemUserDaoFactory {
 
     void deleteData(String type, Long id, Long... ids);
 
-    List<JavaSystemUser> getList(String type, JavaSystemUser javaSystemUser);
+    List<JavaSystemUser> getList(String type, JavaSystemUserWrapper javaSystemUser);
 
-    List<JavaSystemUser> getList(String type, JavaSystemUser javaSystemUser, int page, int size);
+    List<JavaSystemUser> getList(String type, JavaSystemUserWrapper javaSystemUser, int page, int size);
 
-    Pagination<JavaSystemUser> getPage(String type, JavaSystemUser javaSystemUser, int page, int size);
+    Pagination<JavaSystemUser> getPage(String type, JavaSystemUserWrapper javaSystemUser, int page, int size);
 }
