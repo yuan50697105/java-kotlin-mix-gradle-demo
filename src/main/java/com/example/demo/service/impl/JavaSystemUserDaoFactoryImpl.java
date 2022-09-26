@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
 import cn.hutool.core.util.ObjUtil;
-import com.example.demo.constants.DaoType;
+import com.example.demo.constants.JavaDaoType;
 import com.example.demo.dao.JavaSystemUserDao;
 import com.example.demo.entity.JavaSystemUser;
 import com.example.demo.entity.dto.JavaSystemUserWrapper;
@@ -72,7 +72,7 @@ public class JavaSystemUserDaoFactoryImpl implements JavaSystemUserDaoFactory {
     }
 
     private JavaSystemUserDao getJavaSystemUserDao(String type) {
-        JavaSystemUserDao javaSystemUserDao = systemUserDaoMap.get(DaoType.getType(type));
+        JavaSystemUserDao javaSystemUserDao = systemUserDaoMap.get(JavaDaoType.getType(type));
         if (ObjUtil.isNotEmpty(javaSystemUserDao)) {
             return javaSystemUserDao;
         } else {

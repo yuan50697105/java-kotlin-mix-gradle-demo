@@ -8,7 +8,6 @@ import java.io.Serializable;
 public class JavaSystemUserUpdateDTO implements Serializable {
     private Long id;
     private String username;
-    private String password;
     private String name;
     private Integer state;
 }

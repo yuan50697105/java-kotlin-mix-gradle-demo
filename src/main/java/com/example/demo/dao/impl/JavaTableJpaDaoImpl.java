@@ -1,6 +1,6 @@
 package com.example.demo.dao.impl;
 
-import com.example.demo.constants.DaoType;
+import com.example.demo.constants.KotlinDaoType;
 import com.example.demo.dao.JavaTableDao;
 import com.example.demo.entity.JavaTable;
 import com.example.demo.entity.dto.JavaTableWrapper;
@@ -23,7 +23,7 @@ public class JavaTableJpaDaoImpl implements JavaTableDao {
 
     @Override
     public String getType() {
-        return DaoType.JPA.name();
+        return KotlinDaoType.JPA.name();
     }
 
     @Override

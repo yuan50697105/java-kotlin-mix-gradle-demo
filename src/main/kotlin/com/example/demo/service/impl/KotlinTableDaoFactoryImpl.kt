@@ -1,5 +1,6 @@
 package com.example.demo.service.impl
 
+import com.example.demo.constants.KotlinDaoType
 import com.example.demo.dao.KotlinTableDao
 import com.example.demo.entity.KotlinTable
 import com.example.demo.entity.dto.KotlinTableWrapper
@@ -42,5 +43,5 @@ class KotlinTableDaoFactoryImpl @Autowired constructor(kotlinTableDao: List<Kotl
         kotlinTableDao(type)?.saveData(kotlinTable)
     }
 
-    private fun kotlinTableDao(type: String) = kotlinTableDaoMap[KotlinTableDaoFactory.DaoType.getType(type)]
+    private fun kotlinTableDao(type: String) = kotlinTableDaoMap[KotlinDaoType.getType(type)]
 }

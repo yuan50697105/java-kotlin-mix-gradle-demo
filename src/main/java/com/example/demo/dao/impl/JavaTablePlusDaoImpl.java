@@ -3,7 +3,7 @@ package com.example.demo.dao.impl;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.demo.constants.DaoType;
+import com.example.demo.constants.KotlinDaoType;
 import com.example.demo.dao.JavaTableDao;
 import com.example.demo.entity.JavaTable;
 import com.example.demo.entity.dto.JavaTableWrapper;
@@ -19,7 +19,7 @@ import java.util.List;
 public class JavaTablePlusDaoImpl extends ServiceImpl<JavaTableDaoMapper, JavaTable> implements JavaTableDao, IService<JavaTable> {
     @Override
     public String getType() {
-        return DaoType.PLUS.name();
+        return KotlinDaoType.PLUS.name();
     }
 
     @Override

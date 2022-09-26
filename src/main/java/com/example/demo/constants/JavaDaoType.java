@@ -1,6 +1,6 @@
 package com.example.demo.constants;
 
-public enum DaoType {
+public enum JavaDaoType {
     PLUS,
     FLUENT,
     JPA,
@@ -8,7 +8,7 @@ public enum DaoType {
 
 
     public static String getType(String type) {
-        for (DaoType value : values()) {
+        for (JavaDaoType value : values()) {
             if (value.name().equalsIgnoreCase(type)) {
                 return type;
             }

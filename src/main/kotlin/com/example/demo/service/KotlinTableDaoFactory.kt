@@ -12,21 +12,4 @@ interface KotlinTableDaoFactory {
     fun getPage(wrapper: KotlinTableWrapper, page: Int, size: Int, type: String): Pagination<KotlinTable>?
     fun deleteData(id: Array<Long>, type: String)
 
-    enum class DaoType {
-        PLUS,
-        FLUENT,
-        JPA
-        ;
-        companion object{
-            fun getType(type: String):String {
-                for (value in values()) {
-                    if (value.name.lowercase() == type.lowercase()) {
-                        return value.name
-                    }
-
-                }
-                throw IllegalArgumentException(type)
-            }
-        }
-    }
 }

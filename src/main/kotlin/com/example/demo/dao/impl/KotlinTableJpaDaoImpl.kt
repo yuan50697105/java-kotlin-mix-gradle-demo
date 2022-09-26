@@ -1,20 +1,19 @@
 package com.example.demo.dao.impl
 
+import com.example.demo.constants.KotlinDaoType
 import com.example.demo.dao.KotlinTableDao
 import com.example.demo.entity.KotlinTable
 import com.example.demo.entity.dto.KotlinTableWrapper
 import com.example.demo.entity.dto.Pagination
 import com.example.demo.repository.KotlinTableRepository
-import com.example.demo.service.KotlinTableDaoFactory
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
-import java.util.Arrays
 import javax.transaction.Transactional
 
 @Service
 class KotlinTableJpaDaoImpl(private val kotlinTableRepository: KotlinTableRepository) : KotlinTableDao {
     override fun getType(): String {
-        return KotlinTableDaoFactory.DaoType.JPA.name
+        return KotlinDaoType.JPA.name
     }
 
     @Transactional

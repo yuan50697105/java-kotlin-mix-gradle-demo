@@ -1,10 +1,10 @@
 package com.example.demo.dao.impl
 
 import com.example.demo.constants.KotlinDaoType
-import com.example.demo.dao.KotlinTableDao
-import com.example.demo.dao.base.KotlinTableBaseDao
-import com.example.demo.entity.KotlinTable
-import com.example.demo.entity.dto.KotlinTableWrapper
+import com.example.demo.dao.KotlinSystemUserDao
+import com.example.demo.dao.base.KotlinSystemUserBaseDao
+import com.example.demo.entity.KotlinSystemUser
+import com.example.demo.entity.dto.KotlinSystemUserWrapper
 import com.example.demo.entity.dto.Pagination
 import com.github.pagehelper.PageHelper
 import com.github.pagehelper.PageInfo
@@ -12,21 +12,21 @@ import org.springframework.stereotype.Service
 import javax.transaction.Transactional
 
 @Service
-class KotlinTableFluentDaoImpl : KotlinTableBaseDao(), KotlinTableDao {
+class KotlinSystemUserFluentDaoImpl : KotlinSystemUserBaseDao(), KotlinSystemUserDao {
     override fun getType(): String {
         return KotlinDaoType.FLUENT.name
     }
 
     @Transactional
-    override fun updateData(kotlinTable: KotlinTable) {
+    override fun updateData(kotlinTable: KotlinSystemUser) {
         this.updateById(kotlinTable)
     }
 
-    override fun get(id: Long): KotlinTable {
+    override fun get(id: Long): KotlinSystemUser {
         return selectById(id)
     }
 
-    override fun getPage(wrapper: KotlinTableWrapper, page: Int, size: Int): Pagination<KotlinTable> {
+    override fun getPage(wrapper: KotlinSystemUserWrapper, page: Int, size: Int): Pagination<KotlinSystemUser> {
         PageHelper.startPage<Any>(page, size)
         return Pagination(PageInfo.of(listEntity(query())))
 
@@ -37,12 +37,12 @@ class KotlinTableFluentDaoImpl : KotlinTableBaseDao(), KotlinTableDao {
         deleteByIds(id.asList())
     }
 
-    override fun getList(wrapper: KotlinTableWrapper): List<KotlinTable> {
+    override fun getList(wrapper: KotlinSystemUserWrapper): List<KotlinSystemUser> {
         return listEntity(query())
     }
 
     @Transactional
-    override fun saveData(kotlinTable: KotlinTable) {
-        this.save<KotlinTable>(kotlinTable)
+    override fun saveData(kotlinTable: KotlinSystemUser) {
+        this.save<KotlinSystemUser>(kotlinTable)
     }
 }

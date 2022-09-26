@@ -1,6 +1,6 @@
 package com.example.demo.dao.impl;
 
-import com.example.demo.constants.DaoType;
+import com.example.demo.constants.KotlinDaoType;
 import com.example.demo.dao.JavaSystemUserDao;
 import com.example.demo.entity.JavaSystemUser;
 import com.example.demo.entity.dto.JavaSystemUserWrapper;
@@ -25,7 +25,7 @@ public class JavaSystemUserJpaDaoImpl implements JavaSystemUserDao {
 
     @Override
     public String getType() {
-        return DaoType.JPA.name();
+        return KotlinDaoType.JPA.name();
     }
 
     @Override

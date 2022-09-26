@@ -11,7 +11,11 @@ import com.example.demo.service.KotlinTableService
 import org.springframework.stereotype.Service
 
 @Service
-class KotlinTableServiceImpl(private val kotlinTableDaoFactory: KotlinTableDaoFactory,private val kotlinTableConverter: KotlinTableConverter) : KotlinTableService {
+class KotlinTableServiceImpl(
+    private val kotlinTableDaoFactory: KotlinTableDaoFactory,
+    private val kotlinTableConverter: KotlinTableConverter
+) :
+    KotlinTableService {
     override fun saveData(kotlinTable: KotlinTableAddDTO, type: String) {
         val table = kotlinTableConverter.convertForAdd(kotlinTable)
         kotlinTableDaoFactory.saveData(table, type)

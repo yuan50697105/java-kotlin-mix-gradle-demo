@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.example.demo.constants.DaoType;
+import com.example.demo.constants.JavaDaoType;
 import com.example.demo.dao.JavaTableDao;
 import com.example.demo.entity.JavaTable;
 import com.example.demo.entity.dto.JavaTableWrapper;
@@ -31,7 +31,7 @@ public class JavaTableDaoFactoryImpl implements JavaTableDaoFactory {
 
     @Override
     public void saveData(JavaTable data, String type) {
-        JavaTableDao javaTableDao = getJavaTableDao(DaoType.getType(type));
+        JavaTableDao javaTableDao = getJavaTableDao(JavaDaoType.getType(type));
         if (ObjectUtil.isNotEmpty(javaTableDao)) {
             javaTableDao.saveData(data);
         } else {
@@ -46,7 +46,7 @@ public class JavaTableDaoFactoryImpl implements JavaTableDaoFactory {
 
     @Override
     public JavaTable get(Long id, String type) {
-        JavaTableDao javaTableDao = getJavaTableDao(DaoType.getType(type));
+        JavaTableDao javaTableDao = getJavaTableDao(type);
         return javaTableDao.get(id);
     }
 

@@ -1,7 +1,7 @@
 package com.example.demo.dao.impl;
 
 import cn.org.atool.fluent.mybatis.base.IBaseDao;
-import com.example.demo.constants.DaoType;
+import com.example.demo.constants.KotlinDaoType;
 import com.example.demo.dao.JavaSystemUserDao;
 import com.example.demo.dao.base.JavaSystemUserBaseDao;
 import com.example.demo.entity.JavaSystemUser;
@@ -21,7 +21,7 @@ import java.util.List;
 public class JavaSystemUserFluentDaoImpl extends JavaSystemUserBaseDao implements JavaSystemUserDao, IBaseDao<JavaSystemUser> {
     @Override
     public String getType() {
-        return DaoType.FLUENT.name();
+        return KotlinDaoType.FLUENT.name();
     }
 
     @Override

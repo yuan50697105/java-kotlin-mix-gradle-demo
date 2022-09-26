@@ -2,7 +2,7 @@ package com.example.demo.dao.impl;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.demo.constants.DaoType;
+import com.example.demo.constants.KotlinDaoType;
 import com.example.demo.dao.JavaSystemUserDao;
 import com.example.demo.entity.JavaSystemUser;
 import com.example.demo.entity.dto.JavaSystemUserWrapper;
@@ -22,7 +22,7 @@ import java.util.List;
 public class JavaSystemUserPlusDaoImpl extends ServiceImpl<JavaSystemUserDaoMapper, JavaSystemUser> implements JavaSystemUserDao, IService<JavaSystemUser> {
     @Override
     public String getType() {
-        return DaoType.PLUS.name();
+        return KotlinDaoType.PLUS.name();
     }
 
     @Override
