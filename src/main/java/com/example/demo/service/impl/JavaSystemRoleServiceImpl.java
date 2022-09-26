@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.converter.JavaSystemRoleConverter;
 import com.example.demo.dao.factory.JavaSystemRoleDaoFactory;
+import com.example.demo.dao.factory.JavaSystemUserRoleDaoFactory;
 import com.example.demo.entity.JavaSystemRole;
 import com.example.demo.entity.dto.JavaSystemRoleAddDTO;
 import com.example.demo.entity.dto.JavaSystemRoleUpdateDTO;
@@ -15,10 +16,12 @@ import java.util.List;
 @Service
 public class JavaSystemRoleServiceImpl implements JavaSystemRoleService {
     private final JavaSystemRoleDaoFactory daoFactory;
+    private final JavaSystemUserRoleDaoFactory javaSystemUserRoleDaoFactory;
     private final JavaSystemRoleConverter converter;
 
-    public JavaSystemRoleServiceImpl(JavaSystemRoleDaoFactory daoFactory, JavaSystemRoleConverter converter) {
+    public JavaSystemRoleServiceImpl(JavaSystemRoleDaoFactory daoFactory, JavaSystemUserRoleDaoFactory javaSystemUserRoleDaoFactory, JavaSystemRoleConverter converter) {
         this.daoFactory = daoFactory;
+        this.javaSystemUserRoleDaoFactory = javaSystemUserRoleDaoFactory;
         this.converter = converter;
     }
 
@@ -37,6 +40,7 @@ public class JavaSystemRoleServiceImpl implements JavaSystemRoleService {
     @Override
     public void deleteData(String type, Long[] id) {
         daoFactory.deleteData(type, id);
+        javaSystemUserRoleDaoFactory.deleteDataByRoleIds(type, id);
     }
 
     @Override
