@@ -10,8 +10,8 @@ import com.example.demo.entity.dto.JavaTableWrapper;
 import com.example.demo.entity.dto.Pagination;
 import com.example.demo.mapper.JavaTableDaoMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.List;
 

@@ -9,8 +9,8 @@ import com.example.demo.repository.JavaSystemPermissionRepository;
 import com.google.common.collect.Lists;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
