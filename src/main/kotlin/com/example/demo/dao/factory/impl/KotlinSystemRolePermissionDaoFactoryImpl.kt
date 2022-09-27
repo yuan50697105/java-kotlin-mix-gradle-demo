@@ -22,8 +22,8 @@ class KotlinSystemRolePermissionDaoFactoryImpl @Autowired constructor(kotlinTabl
     }
 
     @Transactional
-    override fun updateData(type: String, update: KotlinSystemRolePermission) {
-        kotlinTableDao(type)?.updateData(update)
+    override fun updateData(type: String, kotlinSystemRolePermission: KotlinSystemRolePermission) {
+        kotlinTableDao(type)?.updateData(kotlinSystemRolePermission)
     }
 
     override fun get(type: String, id: Long): KotlinSystemRolePermission? {

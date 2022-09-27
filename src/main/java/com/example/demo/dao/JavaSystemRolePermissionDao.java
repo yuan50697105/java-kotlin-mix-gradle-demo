@@ -32,7 +32,7 @@ public interface JavaSystemRolePermissionDao {
 
     void deleteDataByRoleIds(List<Long> roleIds);
 
-    void deleteDataByPermissionIds(String permissionId, Long... permissionIds);
+    void deleteDataByPermissionIds(Long permissionId, Long... permissionIds);
 
     void deleteDataByPermissionIds(Long[] permissionIds);
 

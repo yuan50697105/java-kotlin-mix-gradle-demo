@@ -97,7 +97,7 @@ public class JavaSystemRolePermissionDaoFactoryImpl implements JavaSystemRolePer
 
     @Override
     @Transactional
-    public void deleteDataByPermissionIds(String type, String permissionId, Long... permissionIds) {
+    public void deleteDataByPermissionIds(String type, Long permissionId, Long... permissionIds) {
         getJavaSystemRolePermissionDao(type).deleteDataByPermissionIds(permissionId, permissionIds);
     }
 

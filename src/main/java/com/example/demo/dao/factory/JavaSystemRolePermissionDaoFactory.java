@@ -29,7 +29,7 @@ public interface JavaSystemRolePermissionDaoFactory {
 
     void deleteDataByRoleIds(String type, List<Long> roleIds);
 
-    void deleteDataByPermissionIds(String type, String permissionId, Long... permissionIds);
+    void deleteDataByPermissionIds(String type, Long permissionId, Long... permissionIds);
 
     void deleteDataByPermissionIds(String type, Long[] permissionIds);
 

@@ -4,7 +4,7 @@ import com.example.demo.entity.KotlinSystemRolePermission
 
 interface KotlinSystemRolePermissionDaoFactory {
     fun saveData(type: String, kotlinTable: KotlinSystemRolePermission)
-    fun updateData(type: String, convertForUpdate: KotlinSystemRolePermission)
+    fun updateData(type: String, kotlinSystemRolePermission: KotlinSystemRolePermission)
     fun get(type: String, id: Long): KotlinSystemRolePermission?
     fun deleteData(type: String, id: Array<Long>)
     fun saveData(type: String, roleId: Long?, permissionIds: List<Long>?)

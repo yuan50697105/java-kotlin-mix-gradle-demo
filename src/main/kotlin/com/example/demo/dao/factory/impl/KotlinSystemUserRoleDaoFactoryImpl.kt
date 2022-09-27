@@ -32,7 +32,7 @@ class KotlinSystemUserRoleDaoFactoryImpl @Autowired constructor(kotlinTableDao: 
         kotlinTableDao(type)?.deleteData(id)
     }
 
-    override fun saveData(type: String, userId: Long?, roleIds: List<Long>?) {
+    override fun saveData(table: String, userId: Long?, roleIds: List<Long>?) {
         if (userId != null && roleIds != null) {
 
             val roles = roleIds.map {
@@ -41,7 +41,7 @@ class KotlinSystemUserRoleDaoFactoryImpl @Autowired constructor(kotlinTableDao: 
                 element.userId = userId
                 element
             }
-            this.kotlinTableDao(type)?.saveData(roles)
+            this.kotlinTableDao(table)?.saveData(roles)
         }
     }
 

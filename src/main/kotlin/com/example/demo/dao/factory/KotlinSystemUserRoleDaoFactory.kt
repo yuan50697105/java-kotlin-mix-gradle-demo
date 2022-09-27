@@ -7,7 +7,7 @@ interface KotlinSystemUserRoleDaoFactory {
     fun updateData(convertForUpdate: KotlinSystemUserRole, type: String)
     fun get(id: Long, type: String): KotlinSystemUserRole?
     fun deleteData(id: Array<Long>, type: String)
-    fun saveData(kotlinTable: String, userId: Long?, roleIds: List<Long>?)
+    fun saveData(type: String, userId: Long?, roleIds: List<Long>?)
     fun updateData(type: String, userId: Long?, roleIds: List<Long>?)
     fun deleteDataByUserIds(type: String, userIds: Array<Long>)
     fun deleteDataByRoleIds(type: String, roleIds: Array<Long>)
