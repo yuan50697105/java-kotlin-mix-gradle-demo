@@ -54,7 +54,8 @@ class KotlinSystemDepartmentJpaDaoImpl(private val repository: KotlinSystemDepar
         page: Int,
         size: Int
     ): List<KotlinSystemDepartment>? {
-        return getPage(wrapper, page, size)?.data
+        val departments = repository.findAll(PageRequest.of(if (page <= 1) 0 else page - 1, size))
+        return departments.map { it }.toList()
     }
 
     override fun getPage(

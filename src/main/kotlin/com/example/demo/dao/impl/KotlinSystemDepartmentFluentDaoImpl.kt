@@ -27,8 +27,8 @@ class KotlinSystemDepartmentFluentDaoImpl : KotlinSystemDepartmentBaseDao(), Kot
     }
 
     @Transactional
-    override fun updateData(javaSystemUser: KotlinSystemDepartment) {
-        updateById(javaSystemUser)
+    override fun updateData(javaSystemRole: KotlinSystemDepartment) {
+        updateById(javaSystemRole)
     }
 
     override operator fun get(id: Long): KotlinSystemDepartment? {
