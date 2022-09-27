@@ -22,4 +22,16 @@ public interface JavaSystemRolePermissionDaoFactory {
     void saveData(String type, Long roleId, List<Long> permissionIds);
 
     void updateData(String type, Long roleId, List<Long> permissionIds);
+
+    void deleteDataByRoleIds(String type, Long[] roleIds);
+
+    void deleteDataByRoleIds(String type, Long id, Long... roleIds);
+
+    void deleteDataByRoleIds(String type, List<Long> roleIds);
+
+    void deleteDataByPermissionIds(String type, String permissionId, Long... permissionIds);
+
+    void deleteDataByPermissionIds(String type, Long[] permissionIds);
+
+    void deleteDataByPermissionIds(String type, List<Long> permissionIds);
 }

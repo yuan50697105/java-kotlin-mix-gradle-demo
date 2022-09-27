@@ -12,6 +12,7 @@ import javax.persistence.Table
 @TableName("system_role_permission")
 @FluentMybatis(table = "system_role_permission")
 class KotlinSystemRolePermission : RichEntity() {
+
     @Id
     var id: Long? = null
     var roleId: Long? = null

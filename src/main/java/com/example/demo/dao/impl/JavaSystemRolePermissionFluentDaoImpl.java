@@ -83,4 +83,21 @@ public class JavaSystemRolePermissionFluentDaoImpl extends JavaSystemRolePermiss
         save(list);
     }
 
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(Long roleId, Long... roleIds) {
+        this.deleteDataByRoleIds(Lists.asList(roleId, roleIds));
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(Long[] roleIds) {
+        this.deleteDataByRoleIds(Arrays.asList(roleIds));
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(List<Long> roleIds) {
+        deleteBy(query().where.roleId().in(roleIds).end());
+    }
 }

@@ -9,7 +9,7 @@ import com.example.demo.entity.dto.Pagination
 import com.github.pagehelper.PageHelper
 import com.github.pagehelper.PageInfo
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class KotlinSystemUserFluentDaoImpl : KotlinSystemUserBaseDao(), KotlinSystemUserDao {

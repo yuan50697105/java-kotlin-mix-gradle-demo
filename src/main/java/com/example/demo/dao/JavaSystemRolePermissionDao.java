@@ -25,4 +25,16 @@ public interface JavaSystemRolePermissionDao {
     void saveData(List<JavaSystemRolePermission> javaSystemRolePermissions);
 
     void updateData(Long roleId, List<Long> permissionIds);
+
+    void deleteDataByRoleIds(Long roleId, Long... roleIds);
+
+    void deleteDataByRoleIds(Long[] roleIds);
+
+    void deleteDataByRoleIds(List<Long> roleIds);
+
+    void deleteDataByPermissionIds(String permissionId, Long... permissionIds);
+
+    void deleteDataByPermissionIds(Long[] permissionIds);
+
+    void deleteDataByPermissionIds(List<Long> permissionIds);
 }

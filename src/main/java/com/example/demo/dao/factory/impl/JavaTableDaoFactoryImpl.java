@@ -9,6 +9,7 @@ import com.example.demo.entity.dto.JavaTableWrapper;
 import com.example.demo.entity.dto.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -30,6 +31,7 @@ public class JavaTableDaoFactoryImpl implements JavaTableDaoFactory {
 
 
     @Override
+    @Transactional
     public void saveData(JavaTable data, String type) {
         JavaTableDao javaTableDao = getJavaTableDao(JavaDaoType.getType(type));
         if (ObjectUtil.isNotEmpty(javaTableDao)) {
@@ -40,6 +42,7 @@ public class JavaTableDaoFactoryImpl implements JavaTableDaoFactory {
     }
 
     @Override
+    @Transactional
     public void updateData(JavaTable javaTable, String type) {
         getJavaTableDao(type).updateData(javaTable);
     }
@@ -61,6 +64,7 @@ public class JavaTableDaoFactoryImpl implements JavaTableDaoFactory {
     }
 
     @Override
+    @Transactional
     public void deleteData(Long[] id, String type) {
         getJavaTableDao(type).deleteData(id);
     }

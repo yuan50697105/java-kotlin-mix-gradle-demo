@@ -6,4 +6,5 @@ open class KotlinSystemRoleUpdateDTO : RichEntity() {
     var id: Long? = null
     var name: String? = null
     var state: Int? = null
+    var permissionIds: List<Long>? = null
 }

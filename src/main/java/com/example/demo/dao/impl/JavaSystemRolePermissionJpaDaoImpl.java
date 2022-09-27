@@ -86,4 +86,21 @@ public class JavaSystemRolePermissionJpaDaoImpl implements JavaSystemRolePermiss
         this.repository.saveAll(entities);
     }
 
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(Long roleId, Long... roleIds) {
+        this.deleteDataByRoleIds(Lists.asList(roleId, roleIds));
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(Long[] roleIds) {
+        this.deleteDataByRoleIds(Arrays.asList(roleIds));
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(List<Long> roleIds) {
+        this.repository.deleteByRoleIdIn(roleIds);
+    }
 }

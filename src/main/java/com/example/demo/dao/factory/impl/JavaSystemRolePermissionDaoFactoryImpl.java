@@ -8,6 +8,7 @@ import com.example.demo.dao.factory.JavaSystemRolePermissionDaoFactory;
 import com.example.demo.entity.JavaSystemRolePermission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
@@ -25,12 +26,14 @@ public class JavaSystemRolePermissionDaoFactoryImpl implements JavaSystemRolePer
     }
 
     @Override
+    @Transactional
     public void saveData(String type, JavaSystemRolePermission javaSystemUser) {
         getJavaSystemRolePermissionDao(type).saveData(javaSystemUser);
 
     }
 
     @Override
+    @Transactional
     public void updateData(String type, JavaSystemRolePermission javaSystemUser) {
         getJavaSystemRolePermissionDao(type).updateData(javaSystemUser);
     }
@@ -41,21 +44,25 @@ public class JavaSystemRolePermissionDaoFactoryImpl implements JavaSystemRolePer
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Long[] ids) {
         getJavaSystemRolePermissionDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Collection<Long> ids) {
         getJavaSystemRolePermissionDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Long id, Long... ids) {
         getJavaSystemRolePermissionDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void saveData(String type, Long roleId, List<Long> permissionIds) {
         if (ObjectUtil.isAllNotEmpty(roleId, permissionIds)) {
             getJavaSystemRolePermissionDao(type).saveData(roleId, permissionIds);
@@ -63,10 +70,47 @@ public class JavaSystemRolePermissionDaoFactoryImpl implements JavaSystemRolePer
     }
 
     @Override
+    @Transactional
     public void updateData(String type, Long roleId, List<Long> permissionIds) {
         if (ObjectUtil.isAllNotEmpty(roleId, permissionIds)) {
             getJavaSystemRolePermissionDao(type).updateData(roleId, permissionIds);
         }
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(String type, Long[] roleIds) {
+        getJavaSystemRolePermissionDao(type).deleteDataByRoleIds(roleIds);
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(String type, Long roleId, Long... roleIds) {
+        getJavaSystemRolePermissionDao(type).deleteDataByRoleIds(roleId, roleIds);
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(String type, List<Long> roleIds) {
+        getJavaSystemRolePermissionDao(type).deleteDataByRoleIds(roleIds);
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByPermissionIds(String type, String permissionId, Long... permissionIds) {
+        getJavaSystemRolePermissionDao(type).deleteDataByPermissionIds(permissionId, permissionIds);
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByPermissionIds(String type, Long[] permissionIds) {
+        getJavaSystemRolePermissionDao(type).deleteDataByPermissionIds(permissionIds);
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByPermissionIds(String type, List<Long> permissionIds) {
+        getJavaSystemRolePermissionDao(type).deleteDataByPermissionIds(permissionIds);
     }
 
     private JavaSystemRolePermissionDao getJavaSystemRolePermissionDao(String type) {

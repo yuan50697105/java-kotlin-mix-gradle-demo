@@ -39,6 +39,7 @@ public class JavaSystemUserRoleDaoFactoryImpl implements JavaSystemUserRoleDaoFa
     }
 
     @Override
+    @Transactional
     public void updateData(String type, Long userId, List<Long> roleIds) {
         if (ObjectUtil.isAllNotEmpty(userId, roleIds)) {
             getJavaSystemUserRoleDao(type).deleteDataByUserIds(roleIds);
@@ -53,21 +54,25 @@ public class JavaSystemUserRoleDaoFactoryImpl implements JavaSystemUserRoleDaoFa
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Long[] ids) {
         getJavaSystemUserRoleDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Collection<Long> ids) {
         getJavaSystemUserRoleDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Long id, Long... ids) {
         getJavaSystemUserRoleDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void saveData(String type, Long userId, List<Long> roleIds) {
         if (ObjectUtil.isAllNotEmpty(userId, roleIds)) {
             List<JavaSystemUserRole> javaSystemUserRoles = new ArrayList<>();

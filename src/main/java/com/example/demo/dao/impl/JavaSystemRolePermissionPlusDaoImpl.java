@@ -84,5 +84,21 @@ public class JavaSystemRolePermissionPlusDaoImpl extends ServiceImpl<JavaSystemR
         this.saveBatch(entityList);
     }
 
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(Long roleId, Long... roleIds) {
+        this.deleteDataByRoleIds(Lists.asList(roleId, roleIds));
+    }
 
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(Long[] roleIds) {
+        this.deleteDataByRoleIds(Arrays.asList(roleIds));
+    }
+
+    @Override
+    @Transactional
+    public void deleteDataByRoleIds(List<Long> roleIds) {
+        lambdaUpdate().in(JavaSystemRolePermission::getRoleId, roleIds).remove();
+    }
 }

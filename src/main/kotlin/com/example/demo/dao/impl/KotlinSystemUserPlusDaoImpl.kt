@@ -9,7 +9,7 @@ import com.example.demo.entity.dto.KotlinSystemUserWrapper
 import com.example.demo.entity.dto.Pagination
 import com.example.demo.mapper.KotlinSystemUserDaoMapper
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class KotlinSystemUserPlusDaoImpl : ServiceImpl<KotlinSystemUserDaoMapper, KotlinSystemUser>(), KotlinSystemUserDao {

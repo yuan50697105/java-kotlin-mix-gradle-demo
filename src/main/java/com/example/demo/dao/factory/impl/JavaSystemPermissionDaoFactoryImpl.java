@@ -9,6 +9,7 @@ import com.example.demo.entity.dto.JavaSystemPermissionWrapper;
 import com.example.demo.entity.dto.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,12 +27,14 @@ public class JavaSystemPermissionDaoFactoryImpl implements JavaSystemPermissionD
     }
 
     @Override
+    @Transactional
     public void saveData(String type, JavaSystemPermission javaSystemUser) {
         getJavaSystemPermissionDao(type).saveData(javaSystemUser);
 
     }
 
     @Override
+    @Transactional
     public void updateData(String type, JavaSystemPermission javaSystemUser) {
         getJavaSystemPermissionDao(type).updateData(javaSystemUser);
     }
@@ -42,16 +45,19 @@ public class JavaSystemPermissionDaoFactoryImpl implements JavaSystemPermissionD
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Long[] ids) {
         getJavaSystemPermissionDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Collection<Long> ids) {
         getJavaSystemPermissionDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Long id, Long... ids) {
         getJavaSystemPermissionDao(type).deleteData(ids);
     }

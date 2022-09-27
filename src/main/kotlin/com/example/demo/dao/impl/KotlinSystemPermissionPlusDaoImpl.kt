@@ -9,7 +9,7 @@ import com.example.demo.entity.dto.KotlinSystemPermissionWrapper
 import com.example.demo.entity.dto.Pagination
 import com.example.demo.mapper.KotlinSystemPermissionDaoMapper
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class KotlinSystemPermissionPlusDaoImpl : ServiceImpl<KotlinSystemPermissionDaoMapper, KotlinSystemPermission>(),

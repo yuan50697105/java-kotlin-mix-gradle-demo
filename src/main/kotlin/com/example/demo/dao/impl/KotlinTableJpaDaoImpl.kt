@@ -8,7 +8,7 @@ import com.example.demo.entity.dto.Pagination
 import com.example.demo.repository.KotlinTableRepository
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class KotlinTableJpaDaoImpl(private val kotlinTableRepository: KotlinTableRepository) : KotlinTableDao {

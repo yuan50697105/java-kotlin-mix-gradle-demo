@@ -9,6 +9,7 @@ import com.example.demo.entity.dto.JavaSystemUserWrapper;
 import com.example.demo.entity.dto.Pagination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,32 +27,38 @@ public class JavaSystemUserDaoFactoryImpl implements JavaSystemUserDaoFactory {
     }
 
     @Override
+    @Transactional
     public void saveData(String type, JavaSystemUser javaSystemUser) {
         getJavaSystemUserDao(type).saveData(javaSystemUser);
 
     }
 
     @Override
+    @Transactional
     public void updateData(String type, JavaSystemUser javaSystemUser) {
         getJavaSystemUserDao(type).updateData(javaSystemUser);
     }
 
     @Override
+    @Transactional
     public JavaSystemUser get(String type, Long id) {
         return getJavaSystemUserDao(type).get(id);
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Long[] ids) {
         getJavaSystemUserDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Collection<Long> ids) {
         getJavaSystemUserDao(type).deleteData(ids);
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Long id, Long... ids) {
         getJavaSystemUserDao(type).deleteData(ids);
     }

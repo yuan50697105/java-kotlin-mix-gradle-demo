@@ -2,7 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.converter.JavaSystemPermissionConverter;
 import com.example.demo.dao.factory.JavaSystemPermissionDaoFactory;
-import com.example.demo.dao.factory.JavaSystemUserRoleDaoFactory;
+import com.example.demo.dao.factory.JavaSystemRolePermissionDaoFactory;
 import com.example.demo.entity.JavaSystemPermission;
 import com.example.demo.entity.dto.JavaSystemPermissionAddDTO;
 import com.example.demo.entity.dto.JavaSystemPermissionUpdateDTO;
@@ -16,12 +16,12 @@ import java.util.List;
 @Service
 public class JavaSystemPermissionServiceImpl implements JavaSystemPermissionService {
     private final JavaSystemPermissionDaoFactory daoFactory;
-    private final JavaSystemUserRoleDaoFactory javaSystemUserRoleDaoFactory;
+    private final JavaSystemRolePermissionDaoFactory systemRolePermissionDaoFactory;
     private final JavaSystemPermissionConverter converter;
 
-    public JavaSystemPermissionServiceImpl(JavaSystemPermissionDaoFactory daoFactory, JavaSystemUserRoleDaoFactory javaSystemUserRoleDaoFactory, JavaSystemPermissionConverter converter) {
+    public JavaSystemPermissionServiceImpl(JavaSystemPermissionDaoFactory daoFactory, JavaSystemRolePermissionDaoFactory systemRolePermissionDaoFactory, JavaSystemPermissionConverter converter) {
         this.daoFactory = daoFactory;
-        this.javaSystemUserRoleDaoFactory = javaSystemUserRoleDaoFactory;
+        this.systemRolePermissionDaoFactory = systemRolePermissionDaoFactory;
         this.converter = converter;
     }
 
@@ -40,7 +40,7 @@ public class JavaSystemPermissionServiceImpl implements JavaSystemPermissionServ
     @Override
     public void deleteData(String type, Long[] id) {
         daoFactory.deleteData(type, id);
-        javaSystemUserRoleDaoFactory.deleteDataByRoleIds(type, id);
+        systemRolePermissionDaoFactory.deleteDataByPermissionIds(type, id);
     }
 
     @Override

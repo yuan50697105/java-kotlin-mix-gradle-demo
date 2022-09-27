@@ -2,6 +2,7 @@ package com.example.demo.service.impl
 
 import com.example.demo.converter.KotlinSystemRoleConverter
 import com.example.demo.dao.factory.KotlinSystemRoleDaoFactory
+import com.example.demo.dao.factory.KotlinSystemRolePermissionDaoFactory
 import com.example.demo.dao.factory.KotlinSystemUserRoleDaoFactory
 import com.example.demo.entity.KotlinSystemRole
 import com.example.demo.entity.dto.KotlinSystemRoleAddDTO
@@ -16,17 +17,22 @@ import org.springframework.transaction.annotation.Transactional
 class KotlinSystemRoleServiceImpl(
     private val kotlinTableDaoFactory: KotlinSystemRoleDaoFactory,
     private val kotlinSystemUserRoleDaoFactory: KotlinSystemUserRoleDaoFactory,
+    private val kotlinSystemRolePermissionDaoFactory: KotlinSystemRolePermissionDaoFactory,
     private val kotlinTableConverter: KotlinSystemRoleConverter
 ) :
     KotlinSystemRoleService {
+    @Transactional
     override fun saveData(kotlinTable: KotlinSystemRoleAddDTO, type: String) {
         val table = kotlinTableConverter.convertForAdd(kotlinTable)
         kotlinTableDaoFactory.saveData(table, type)
+        kotlinSystemRolePermissionDaoFactory.saveData(type, table.id, kotlinTable.permissionIds)
     }
 
+    @Transactional
     override fun updateData(table: KotlinSystemRoleUpdateDTO, type: String) {
         val kotlinTable = kotlinTableConverter.convertForUpdate(table)
         kotlinTableDaoFactory.updateData(kotlinTable, type)
+        kotlinSystemRolePermissionDaoFactory.updateData(type, kotlinTable.id, table.permissionIds)
 
     }
 
@@ -51,6 +57,7 @@ class KotlinSystemRoleServiceImpl(
     override fun deleteData(id: Array<Long>, type: String) {
         kotlinTableDaoFactory.deleteData(id, type)
         kotlinSystemUserRoleDaoFactory.deleteDataByRoleIds(type, id)
+        kotlinSystemRolePermissionDaoFactory.deleteDataByRoleIds(type, id)
 
     }
 }

@@ -9,7 +9,7 @@ import com.example.demo.entity.dto.KotlinSystemRoleWrapper
 import com.example.demo.entity.dto.Pagination
 import com.example.demo.mapper.KotlinSystemRoleDaoMapper
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class KotlinSystemRolePlusDaoImpl : ServiceImpl<KotlinSystemRoleDaoMapper, KotlinSystemRole>(), KotlinSystemRoleDao {

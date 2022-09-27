@@ -46,6 +46,7 @@ public class JavaSystemRoleServiceImpl implements JavaSystemRoleService {
     public void deleteData(String type, Long[] id) {
         daoFactory.deleteData(type, id);
         systemUserRoleDaoFactory.deleteDataByRoleIds(type, id);
+        systemRolePermissionDaoFactory.deleteDataByRoleIds(type, id);
     }
 
     @Override
