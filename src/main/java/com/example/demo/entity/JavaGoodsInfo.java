@@ -24,7 +24,7 @@ public class JavaGoodsInfo extends RichEntity {
     private String name;
     private BigDecimal price;
     private Integer state;
-
+    private Integer num;
     public enum GoodsState {
         CREATED(0, "已创建"),
         ONLINE(1, "已上架"),

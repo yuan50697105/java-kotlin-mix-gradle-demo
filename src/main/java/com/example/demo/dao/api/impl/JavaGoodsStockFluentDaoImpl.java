@@ -2,10 +2,10 @@ package com.example.demo.dao.api.impl;
 
 import cn.org.atool.fluent.mybatis.base.IBaseDao;
 import com.example.demo.constants.JavaDaoType;
-import com.example.demo.dao.api.JavaCustomerInfoDao;
-import com.example.demo.dao.base.JavaCustomerInfoBaseDao;
-import com.example.demo.entity.JavaCustomerInfo;
-import com.example.demo.entity.dto.JavaCustomerInfoWrapper;
+import com.example.demo.dao.api.JavaGoodsStockDao;
+import com.example.demo.dao.base.JavaGoodsStockBaseDao;
+import com.example.demo.entity.JavaGoodsStock;
+import com.example.demo.entity.dto.JavaGoodsStockWrapper;
 import com.example.demo.entity.dto.Pagination;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
-public class JavaCustomerInfoDaoImpl extends JavaCustomerInfoBaseDao implements JavaCustomerInfoDao, IBaseDao<JavaCustomerInfo> {
+public class JavaGoodsStockFluentDaoImpl extends JavaGoodsStockBaseDao implements JavaGoodsStockDao, IBaseDao<JavaGoodsStock> {
     @Override
     public String getType() {
         return JavaDaoType.FLUENT.name();
@@ -26,18 +26,18 @@ public class JavaCustomerInfoDaoImpl extends JavaCustomerInfoBaseDao implements 
 
     @Override
     @Transactional
-    public void saveData(JavaCustomerInfo javaSystemUser) {
+    public void saveData(JavaGoodsStock javaSystemUser) {
         this.save(javaSystemUser);
     }
 
     @Override
     @Transactional
-    public void updateData(JavaCustomerInfo javaSystemUser) {
+    public void updateData(JavaGoodsStock javaSystemUser) {
         this.updateById(javaSystemUser);
     }
 
     @Override
-    public JavaCustomerInfo get(Long id) {
+    public JavaGoodsStock get(Long id) {
         return this.selectById(id);
     }
 
@@ -60,19 +60,19 @@ public class JavaCustomerInfoDaoImpl extends JavaCustomerInfoBaseDao implements 
     }
 
     @Override
-    public List<JavaCustomerInfo> getList(JavaCustomerInfoWrapper javaSystemUser) {
+    public List<JavaGoodsStock> getList(JavaGoodsStockWrapper javaSystemUser) {
         return listEntity(query());
     }
 
     @Override
-    public List<JavaCustomerInfo> getList(JavaCustomerInfoWrapper javaSystemUser, int page, int size) {
+    public List<JavaGoodsStock> getList(JavaGoodsStockWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
         return getList(javaSystemUser);
     }
 
     @Override
-    public Pagination<JavaCustomerInfo> getPage(JavaCustomerInfoWrapper javaSystemUser, int page, int size) {
+    public Pagination<JavaGoodsStock> getPage(JavaGoodsStockWrapper javaSystemUser, int page, int size) {
         PageHelper.startPage(page, size);
-        return new Pagination<JavaCustomerInfo>(new PageInfo<>(getList(javaSystemUser)));
+        return new Pagination<JavaGoodsStock>(new PageInfo<>(getList(javaSystemUser)));
     }
 }
