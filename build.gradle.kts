@@ -2,6 +2,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("java")
+//    id("groovy")
+//    id("scala")
     id("org.springframework.boot") version "2.7.4"
     id("io.spring.dependency-management") version "1.0.14.RELEASE"
     kotlin("jvm") version "1.6.21"
@@ -23,6 +25,7 @@ configurations {
 repositories {
 //	mavenCentral()
     maven("https://maven.aliyun.com/repository/public/")
+    mavenCentral()
 
 }
 
@@ -30,6 +33,12 @@ extra["springBootAdminVersion"] = "2.7.4"
 extra["springCloudVersion"] = "2021.0.4"
 
 dependencies {
+//    implementation("org.scala-lang:scala-library:2.13.8")
+//    implementation("org.scala-lang:scala-compiler:2.13.8")
+//    implementation("org.scala-lang:scala-reflect:2.13.8")
+//    implementation(gradleApi())
+//    implementation(localGroovy())
+//    implementation("org.codehaus.groovy:groovy-all:3.0.12")
     implementation("com.fhs-opensource:easy-trans-spring-boot-starter:2.0.3")
     implementation("com.fhs-opensource:easy-trans-tk-extend:2.0.3")
     implementation("com.fhs-opensource:easy-trans-mybatis-plus-extend:2.0.3")
