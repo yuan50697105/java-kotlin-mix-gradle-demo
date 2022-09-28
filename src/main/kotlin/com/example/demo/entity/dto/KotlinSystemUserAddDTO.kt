@@ -5,4 +5,5 @@ open class KotlinSystemUserAddDTO {
     var password: String? = null
     var name: String? = null
     var roleIds: List<Long>? = null
+    var departIds: List<Long>? = null
 }

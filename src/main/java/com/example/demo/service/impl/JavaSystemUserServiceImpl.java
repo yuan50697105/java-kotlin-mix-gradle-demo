@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.converter.JavaSystemUserConverter;
 import com.example.demo.dao.factory.JavaSystemUserDaoFactory;
+import com.example.demo.dao.factory.JavaSystemUserDepartmentDaoFactory;
 import com.example.demo.dao.factory.JavaSystemUserRoleDaoFactory;
 import com.example.demo.entity.JavaSystemUser;
 import com.example.demo.entity.dto.JavaSystemUserAddDTO;
@@ -17,11 +18,13 @@ import java.util.List;
 public class JavaSystemUserServiceImpl implements JavaSystemUserService {
     private final JavaSystemUserDaoFactory javaSystemUserDaoFactory;
     private final JavaSystemUserRoleDaoFactory javaSystemUserRoleDaoFactory;
+    private final JavaSystemUserDepartmentDaoFactory javaSystemUserDepartmentDaoFactory;
     private final JavaSystemUserConverter javaSystemUserConverter;
 
-    public JavaSystemUserServiceImpl(JavaSystemUserDaoFactory javaSystemUserDaoFactory, JavaSystemUserRoleDaoFactory javaSystemUserRoleDaoFactory, JavaSystemUserConverter javaSystemUserConverter) {
+    public JavaSystemUserServiceImpl(JavaSystemUserDaoFactory javaSystemUserDaoFactory, JavaSystemUserRoleDaoFactory javaSystemUserRoleDaoFactory, JavaSystemUserDepartmentDaoFactory javaSystemUserDepartmentDaoFactory, JavaSystemUserConverter javaSystemUserConverter) {
         this.javaSystemUserDaoFactory = javaSystemUserDaoFactory;
         this.javaSystemUserRoleDaoFactory = javaSystemUserRoleDaoFactory;
+        this.javaSystemUserDepartmentDaoFactory = javaSystemUserDepartmentDaoFactory;
         this.javaSystemUserConverter = javaSystemUserConverter;
     }
 
@@ -30,6 +33,7 @@ public class JavaSystemUserServiceImpl implements JavaSystemUserService {
         JavaSystemUser javaSystemUser = javaSystemUserConverter.convertForAdd(table);
         javaSystemUserDaoFactory.saveData(type, javaSystemUser);
         javaSystemUserRoleDaoFactory.saveData(type, javaSystemUser.getId(), table.getRoleIds());
+        javaSystemUserDepartmentDaoFactory.saveData(type, javaSystemUser.getId(), table.getDepartIds());
     }
 
     @Override
@@ -37,12 +41,14 @@ public class JavaSystemUserServiceImpl implements JavaSystemUserService {
         JavaSystemUser javaSystemUser = javaSystemUserConverter.convertForUpdate(table);
         javaSystemUserDaoFactory.updateData(type, javaSystemUser);
         javaSystemUserRoleDaoFactory.updateData(type, table.getId(), table.getRoleIds());
+        javaSystemUserDepartmentDaoFactory.updateData((type), table.getId(), table.getDepartIds());
     }
 
     @Override
     public void deleteData(String type, Long[] id) {
         javaSystemUserDaoFactory.deleteData(type, id);
         javaSystemUserRoleDaoFactory.deleteDataByUserIds(type, id);
+        javaSystemUserDepartmentDaoFactory.deleteDataByUserIds(type, id);
     }
 
     @Override

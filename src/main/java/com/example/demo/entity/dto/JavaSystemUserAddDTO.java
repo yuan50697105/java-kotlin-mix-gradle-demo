@@ -11,4 +11,5 @@ public class JavaSystemUserAddDTO implements Serializable {
     private String password;
     private String name;
     private List<Long> roleIds;
+    private List<Long> departIds;
 }

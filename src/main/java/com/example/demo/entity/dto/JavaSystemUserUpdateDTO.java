@@ -12,4 +12,5 @@ public class JavaSystemUserUpdateDTO implements Serializable {
     private String name;
     private Integer state;
     private List<Long> roleIds;
+    private List<Long> departIds;
 }

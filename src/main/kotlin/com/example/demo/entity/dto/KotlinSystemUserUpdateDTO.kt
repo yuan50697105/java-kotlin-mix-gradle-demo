@@ -6,4 +6,5 @@ open class KotlinSystemUserUpdateDTO {
     var name: String? = null
     var state: Int? = null
     var roleIds: List<Long>? = null
+    var departIds: List<Long>? = null
 }

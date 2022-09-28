@@ -2,7 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.converter.JavaSystemDepartmentConverter;
 import com.example.demo.dao.factory.JavaSystemDepartmentDaoFactory;
-import com.example.demo.dao.factory.JavaSystemRolePermissionDaoFactory;
+import com.example.demo.dao.factory.JavaSystemUserDepartmentDaoFactory;
 import com.example.demo.entity.JavaSystemDepartment;
 import com.example.demo.entity.dto.JavaSystemDepartmentAddDTO;
 import com.example.demo.entity.dto.JavaSystemDepartmentUpdateDTO;
@@ -16,12 +16,12 @@ import java.util.List;
 @Service
 public class JavaSystemDepartmentServiceImpl implements JavaSystemDepartmentService {
     private final JavaSystemDepartmentDaoFactory daoFactory;
-    private final JavaSystemRolePermissionDaoFactory systemRolePermissionDaoFactory;
+    private final JavaSystemUserDepartmentDaoFactory systemUserDepartmentDaoFactory;
     private final JavaSystemDepartmentConverter converter;
 
-    public JavaSystemDepartmentServiceImpl(JavaSystemDepartmentDaoFactory daoFactory, JavaSystemRolePermissionDaoFactory systemRolePermissionDaoFactory, JavaSystemDepartmentConverter converter) {
+    public JavaSystemDepartmentServiceImpl(JavaSystemDepartmentDaoFactory daoFactory, JavaSystemUserDepartmentDaoFactory systemUserDepartmentDaoFactory, JavaSystemDepartmentConverter converter) {
         this.daoFactory = daoFactory;
-        this.systemRolePermissionDaoFactory = systemRolePermissionDaoFactory;
+        this.systemUserDepartmentDaoFactory = systemUserDepartmentDaoFactory;
         this.converter = converter;
     }
 
@@ -40,7 +40,7 @@ public class JavaSystemDepartmentServiceImpl implements JavaSystemDepartmentServ
     @Override
     public void deleteData(String type, Long[] id) {
         daoFactory.deleteData(type, id);
-        systemRolePermissionDaoFactory.deleteDataByPermissionIds(type, id);
+        systemUserDepartmentDaoFactory.deleteDataByDepartIds(type, id);
     }
 
     @Override
