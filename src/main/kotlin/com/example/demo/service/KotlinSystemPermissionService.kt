@@ -1,5 +1,6 @@
 package com.example.demo.service
 
+import cn.hutool.core.lang.tree.Tree
 import com.example.demo.entity.KotlinSystemPermission
 import com.example.demo.entity.dto.KotlinSystemPermissionAddDTO
 import com.example.demo.entity.dto.KotlinSystemPermissionUpdateDTO
@@ -19,5 +20,6 @@ interface KotlinSystemPermissionService {
     ): Pagination<KotlinSystemPermission>?
 
     fun deleteData(id: Array<Long>, type: String)
+    fun getTree(type: String, wrapper: KotlinSystemPermissionWrapper): List<Tree<Long?>>?
 
 }

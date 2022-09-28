@@ -45,7 +45,7 @@ class KotlinOrderInfoController(private val kotlinTableService: KotlinOrderInfoS
         return kotlinTableService.getList(type, wrapper)
     }
 
-    @GetMapping("/{type}/list")
+    @GetMapping("/{type}")
     operator fun get(
         wrapper: KotlinOrderInfoWrapper,
         @RequestParam page: Int,

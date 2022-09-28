@@ -83,6 +83,10 @@ public class JavaSystemDepartmentDaoFactoryImpl implements JavaSystemDepartmentD
     @Override
     public List<Tree<Long>> getTree(String type, JavaSystemDepartmentWrapper wrapper) {
         List<JavaSystemDepartment> list = getList(type, wrapper);
+        return getTrees(list);
+    }
+
+    private List<Tree<Long>> getTrees(List<JavaSystemDepartment> list) {
         return TreeUtil.build(list, 0L, (object, treeNode) -> {
             treeNode.setId(object.getId());
             treeNode.setParentId(object.getParentId());

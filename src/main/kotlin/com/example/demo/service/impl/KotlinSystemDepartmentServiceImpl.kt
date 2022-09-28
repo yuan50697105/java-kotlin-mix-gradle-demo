@@ -1,5 +1,6 @@
 package com.example.demo.service.impl
 
+import cn.hutool.core.lang.tree.Tree
 import com.example.demo.converter.KotlinSystemDepartmentConverter
 import com.example.demo.dao.factory.KotlinSystemDepartmentDaoFactory
 import com.example.demo.dao.factory.KotlinSystemUserDepartmentDaoFactory
@@ -49,5 +50,9 @@ class KotlinSystemDepartmentServiceImpl(
         size: Int
     ): Pagination<KotlinSystemDepartment>? {
         return daoFactory.getPage(type, wrapper, page, size)
+    }
+
+    override fun getTree(type: String, wrapper: KotlinSystemDepartmentWrapper): List<Tree<Long?>>? {
+        return daoFactory.getTree(type, wrapper)
     }
 }

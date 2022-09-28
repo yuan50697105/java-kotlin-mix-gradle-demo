@@ -1,5 +1,6 @@
 package com.example.demo.controller
 
+import cn.hutool.core.lang.tree.Tree
 import com.example.demo.entity.KotlinSystemDepartment
 import com.example.demo.entity.dto.KotlinSystemDepartmentAddDTO
 import com.example.demo.entity.dto.KotlinSystemDepartmentUpdateDTO
@@ -45,7 +46,7 @@ class KotlinSystemDepartmentController(private val kotlinTableService: KotlinSys
         return kotlinTableService.getList(type, wrapper)
     }
 
-    @GetMapping("/{type}/list")
+    @GetMapping("/{type}")
     operator fun get(
         wrapper: KotlinSystemDepartmentWrapper,
         @RequestParam page: Int,
@@ -53,6 +54,11 @@ class KotlinSystemDepartmentController(private val kotlinTableService: KotlinSys
         @PathVariable type: String
     ): Pagination<KotlinSystemDepartment>? {
         return kotlinTableService.getPage(type, wrapper, page, size)
+    }
+
+    @GetMapping("/{type}/tree")
+    fun getTree(wrapper: KotlinSystemDepartmentWrapper, type: String): List<Tree<Long?>>? {
+        return kotlinTableService.getTree(type, wrapper)
     }
 
     @DeleteMapping("/{type}/{id}")

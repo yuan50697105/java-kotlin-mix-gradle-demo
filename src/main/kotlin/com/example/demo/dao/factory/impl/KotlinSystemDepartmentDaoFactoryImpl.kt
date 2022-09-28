@@ -1,5 +1,9 @@
 package com.example.demo.dao.factory.impl
 
+import cn.hutool.core.bean.BeanUtil
+import cn.hutool.core.lang.tree.Tree
+import cn.hutool.core.lang.tree.TreeUtil
+import cn.hutool.core.lang.tree.parser.NodeParser
 import cn.hutool.core.util.ObjUtil
 import com.example.demo.constants.JavaDaoType
 import com.example.demo.dao.api.KotlinSystemDepartmentDao
@@ -76,6 +80,21 @@ class KotlinSystemDepartmentDaoFactoryImpl @Autowired constructor(systemUserDaoL
     ): Pagination<KotlinSystemDepartment>? {
         return getKotlinSystemDepartmentDao(type)?.getPage(wrapper, page, size)
     }
+
+    override fun getTree(type: String, wrapper: KotlinSystemDepartmentWrapper): List<Tree<Long?>>? {
+        val list = getList(type, wrapper)
+        return trees(list)
+    }
+
+    private fun trees(list: List<KotlinSystemDepartment>?): List<Tree<Long?>>? =
+        TreeUtil.build(list, 0, NodeParser { `object`, treeNode ->
+            run {
+                treeNode.id = `object`.id
+                treeNode.parentId = `object`.parentId
+                treeNode.name = `object`.name
+                BeanUtil.beanToMap(`object`).forEach(treeNode::putExtra)
+            }
+        })
 
     private fun getKotlinSystemDepartmentDao(type: String): KotlinSystemDepartmentDao? {
         val javaSystemUserDao = daoMap[JavaDaoType.getType(type)]

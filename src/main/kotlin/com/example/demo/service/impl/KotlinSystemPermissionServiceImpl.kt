@@ -1,5 +1,6 @@
 package com.example.demo.service.impl
 
+import cn.hutool.core.lang.tree.Tree
 import com.example.demo.converter.KotlinSystemPermissionConverter
 import com.example.demo.dao.factory.KotlinSystemPermissionDaoFactory
 import com.example.demo.dao.factory.KotlinSystemUserRoleDaoFactory
@@ -52,5 +53,9 @@ class KotlinSystemPermissionServiceImpl(
         kotlinTableDaoFactory.deleteData(id, type)
         kotlinSystemUserRoleDaoFactory.deleteDataByRoleIds(type, id)
 
+    }
+
+    override fun getTree(type: String, wrapper: KotlinSystemPermissionWrapper): List<Tree<Long?>>? {
+        return kotlinTableDaoFactory.getTree(type, wrapper)
     }
 }

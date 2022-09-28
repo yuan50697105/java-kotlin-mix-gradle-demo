@@ -1,5 +1,6 @@
 package com.example.demo.dao.factory
 
+import cn.hutool.core.lang.tree.Tree
 import com.example.demo.entity.KotlinSystemDepartment
 import com.example.demo.entity.dto.KotlinSystemDepartmentWrapper
 import com.example.demo.entity.dto.Pagination
@@ -25,4 +26,6 @@ interface KotlinSystemDepartmentDaoFactory {
         page: Int,
         size: Int
     ): Pagination<KotlinSystemDepartment>?
+
+    fun getTree(type: String, wrapper: KotlinSystemDepartmentWrapper): List<Tree<Long?>>?
 }

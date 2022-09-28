@@ -42,7 +42,7 @@ class KotlinSystemUserController(private val kotlinTableService: KotlinSystemUse
         return kotlinTableService.getList(wrapper, type)
     }
 
-    @GetMapping("/{type}/list")
+    @GetMapping("/{type}")
     operator fun get(
         wrapper: KotlinSystemUserWrapper,
         @RequestParam page: Int,

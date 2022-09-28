@@ -14,8 +14,9 @@ open class KotlinSystemPermission : RichEntity() {
     var id: Long? = null
     var name: String? = null
     var type: Int? = null
+    var parentId: Long? = null
 
-    enum class PermissionType(private val code: Int, private val value: String) {
+    enum class PermissionType(val code: Int, val value: String) {
         MENU(1, "菜单");
 
         operator fun get(value: String?): JavaSystemPermission.PermissionType {

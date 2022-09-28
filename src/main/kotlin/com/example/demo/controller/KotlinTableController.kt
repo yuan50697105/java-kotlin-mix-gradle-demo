@@ -42,7 +42,7 @@ class KotlinTableController(private val kotlinTableService: KotlinTableService) 
         return kotlinTableService.getList(wrapper, type)
     }
 
-    @GetMapping("/{type}/list")
+    @GetMapping("/{type}")
     operator fun get(
         wrapper: KotlinTableWrapper,
         @RequestParam page: Int,

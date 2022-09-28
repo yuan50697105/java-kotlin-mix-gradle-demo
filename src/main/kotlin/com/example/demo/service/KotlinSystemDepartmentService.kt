@@ -1,5 +1,6 @@
 package com.example.demo.service
 
+import cn.hutool.core.lang.tree.Tree
 import com.example.demo.entity.KotlinSystemDepartment
 import com.example.demo.entity.dto.KotlinSystemDepartmentAddDTO
 import com.example.demo.entity.dto.KotlinSystemDepartmentUpdateDTO
@@ -18,4 +19,6 @@ interface KotlinSystemDepartmentService {
         page: Int,
         size: Int
     ): Pagination<KotlinSystemDepartment>?
+
+    fun getTree(type: String, wrapper: KotlinSystemDepartmentWrapper): List<Tree<Long?>>?
 }

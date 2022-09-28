@@ -1,5 +1,9 @@
 package com.example.demo.dao.factory.impl
 
+import cn.hutool.core.bean.BeanUtil
+import cn.hutool.core.lang.tree.Tree
+import cn.hutool.core.lang.tree.TreeUtil
+import cn.hutool.core.lang.tree.parser.NodeParser
 import com.example.demo.constants.KotlinDaoType
 import com.example.demo.dao.api.KotlinSystemPermissionDao
 import com.example.demo.dao.factory.KotlinSystemPermissionDaoFactory
@@ -35,6 +39,21 @@ class KotlinSystemPermissionDaoFactoryImpl @Autowired constructor(kotlinTableDao
     override fun deleteData(id: Array<Long>, type: String) {
         kotlinTableDao(type)?.deleteData(id)
     }
+
+    override fun getTree(type: String, wrapper: KotlinSystemPermissionWrapper): List<Tree<Long?>>? {
+        val list = getList(wrapper, type)
+        return trees(list)
+    }
+
+    private fun trees(list: List<KotlinSystemPermission>?): List<Tree<Long?>>? =
+        TreeUtil.build(list, 0, NodeParser { `object`, treeNode ->
+            run {
+                treeNode.id = `object`.id
+                treeNode.parentId = `object`.parentId
+                treeNode.name = `object`.name
+                BeanUtil.beanToMap(`object`).forEach(treeNode::putExtra)
+            }
+        })
 
     override fun getList(wrapper: KotlinSystemPermissionWrapper, type: String): List<KotlinSystemPermission>? {
         return kotlinTableDao(type)?.getList(wrapper)
