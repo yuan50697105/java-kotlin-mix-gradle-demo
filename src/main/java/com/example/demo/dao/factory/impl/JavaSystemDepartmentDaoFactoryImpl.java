@@ -1,5 +1,8 @@
 package com.example.demo.dao.factory.impl;
 
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.lang.tree.Tree;
+import cn.hutool.core.lang.tree.TreeUtil;
 import cn.hutool.core.util.ObjUtil;
 import com.example.demo.constants.JavaDaoType;
 import com.example.demo.dao.api.JavaSystemDepartmentDao;
@@ -75,6 +78,17 @@ public class JavaSystemDepartmentDaoFactoryImpl implements JavaSystemDepartmentD
     @Override
     public Pagination<JavaSystemDepartment> getPage(String type, JavaSystemDepartmentWrapper javaSystemUser, int page, int size) {
         return getJavaSystemDepartmentDao(type).getPage(javaSystemUser, page, size);
+    }
+
+    @Override
+    public List<Tree<Long>> getTree(String type, JavaSystemDepartmentWrapper wrapper) {
+        List<JavaSystemDepartment> list = getList(type, wrapper);
+        return TreeUtil.build(list, 0L, (object, treeNode) -> {
+            treeNode.setId(object.getId());
+            treeNode.setParentId(object.getParentId());
+            treeNode.setName(object.getName());
+            BeanUtil.beanToMap(object).forEach(treeNode::putExtra);
+        });
     }
 
     private JavaSystemDepartmentDao getJavaSystemDepartmentDao(String type) {

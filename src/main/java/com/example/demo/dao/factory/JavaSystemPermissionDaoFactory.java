@@ -1,5 +1,6 @@
 package com.example.demo.dao.factory;
 
+import cn.hutool.core.lang.tree.Tree;
 import com.example.demo.entity.JavaSystemPermission;
 import com.example.demo.entity.dto.JavaSystemPermissionWrapper;
 import com.example.demo.entity.dto.Pagination;
@@ -26,4 +27,6 @@ public interface JavaSystemPermissionDaoFactory {
     List<JavaSystemPermission> getList(String type, JavaSystemPermissionWrapper wrapper, int page, int size);
 
     Pagination<JavaSystemPermission> getPage(String type, JavaSystemPermissionWrapper wrapper, int page, int size);
+
+    List<Tree<Long>> getTree(String type, JavaSystemPermissionWrapper wrapper);
 }

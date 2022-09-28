@@ -57,7 +57,7 @@ public class JavaSystemUserController {
         return javaTableService.getList(type, wrapper);
     }
 
-    @GetMapping("/{type}/list")
+    @GetMapping("/{type}")
     public Pagination<JavaSystemUser> get(JavaSystemUserWrapper wrapper, @RequestParam int page, @RequestParam int size, @PathVariable String type) {
         return javaTableService.getPage(type, wrapper, page, size);
     }

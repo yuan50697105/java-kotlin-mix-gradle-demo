@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import cn.hutool.core.lang.tree.Tree;
 import com.example.demo.converter.JavaSystemDepartmentConverter;
 import com.example.demo.dao.factory.JavaSystemDepartmentDaoFactory;
 import com.example.demo.dao.factory.JavaSystemUserDepartmentDaoFactory;
@@ -56,5 +57,10 @@ public class JavaSystemDepartmentServiceImpl implements JavaSystemDepartmentServ
     @Override
     public Pagination<JavaSystemDepartment> getPage(String type, JavaSystemDepartmentWrapper wrapper, int page, int size) {
         return daoFactory.getPage(type, wrapper, page, size);
+    }
+
+    @Override
+    public List<Tree<Long>> getTree(String type, JavaSystemDepartmentWrapper wrapper) {
+        return daoFactory.getTree(type, wrapper);
     }
 }

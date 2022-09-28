@@ -1,5 +1,6 @@
 package com.example.demo.dao.factory;
 
+import cn.hutool.core.lang.tree.Tree;
 import com.example.demo.entity.JavaSystemDepartment;
 import com.example.demo.entity.dto.JavaSystemDepartmentWrapper;
 import com.example.demo.entity.dto.Pagination;
@@ -26,4 +27,6 @@ public interface JavaSystemDepartmentDaoFactory {
     List<JavaSystemDepartment> getList(String type, JavaSystemDepartmentWrapper wrapper, int page, int size);
 
     Pagination<JavaSystemDepartment> getPage(String type, JavaSystemDepartmentWrapper wrapper, int page, int size);
+
+    List<Tree<Long>> getTree(String type, JavaSystemDepartmentWrapper wrapper);
 }

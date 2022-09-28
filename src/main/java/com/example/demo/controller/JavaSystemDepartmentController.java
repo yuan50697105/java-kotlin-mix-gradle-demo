@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import cn.hutool.core.lang.tree.Tree;
 import com.example.demo.entity.JavaSystemDepartment;
 import com.example.demo.entity.dto.JavaSystemDepartmentAddDTO;
 import com.example.demo.entity.dto.JavaSystemDepartmentUpdateDTO;
@@ -57,8 +58,13 @@ public class JavaSystemDepartmentController {
         return service.getList(type, wrapper);
     }
 
-    @GetMapping("/{type}/list")
+    @GetMapping("/{type}")
     public Pagination<JavaSystemDepartment> get(JavaSystemDepartmentWrapper wrapper, @RequestParam int page, @RequestParam int size, @PathVariable String type) {
         return service.getPage(type, wrapper, page, size);
+    }
+
+    @GetMapping("/{type}/tree")
+    public List<Tree<Long>> getTree(JavaSystemDepartmentWrapper wrapper, @PathVariable String type) {
+        return service.getTree(type, wrapper);
     }
 }

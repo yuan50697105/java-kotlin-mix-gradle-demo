@@ -11,6 +11,7 @@ import com.example.demo.entity.dto.JavaSystemUserWrapper;
 import com.example.demo.entity.dto.Pagination;
 import com.example.demo.service.JavaSystemUserService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class JavaSystemUserServiceImpl implements JavaSystemUserService {
     }
 
     @Override
+    @Transactional
     public void saveData(String type, JavaSystemUserAddDTO table) {
         JavaSystemUser javaSystemUser = javaSystemUserConverter.convertForAdd(table);
         javaSystemUserDaoFactory.saveData(type, javaSystemUser);
@@ -37,6 +39,7 @@ public class JavaSystemUserServiceImpl implements JavaSystemUserService {
     }
 
     @Override
+    @Transactional
     public void updateData(String type, JavaSystemUserUpdateDTO table) {
         JavaSystemUser javaSystemUser = javaSystemUserConverter.convertForUpdate(table);
         javaSystemUserDaoFactory.updateData(type, javaSystemUser);
@@ -45,6 +48,7 @@ public class JavaSystemUserServiceImpl implements JavaSystemUserService {
     }
 
     @Override
+    @Transactional
     public void deleteData(String type, Long[] id) {
         javaSystemUserDaoFactory.deleteData(type, id);
         javaSystemUserRoleDaoFactory.deleteDataByUserIds(type, id);

@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import cn.hutool.core.lang.tree.Tree;
 import com.example.demo.entity.JavaSystemDepartment;
 import com.example.demo.entity.dto.JavaSystemDepartmentAddDTO;
 import com.example.demo.entity.dto.JavaSystemDepartmentUpdateDTO;
@@ -20,4 +21,6 @@ public interface JavaSystemDepartmentService {
     List<JavaSystemDepartment> getList(String type, JavaSystemDepartmentWrapper wrapper);
 
     Pagination<JavaSystemDepartment> getPage(String type, JavaSystemDepartmentWrapper wrapper, int page, int size);
+
+    List<Tree<Long>> getTree(String type, JavaSystemDepartmentWrapper wrapper);
 }

@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import cn.hutool.core.lang.tree.Tree;
 import com.example.demo.entity.JavaSystemPermission;
 import com.example.demo.entity.dto.JavaSystemPermissionAddDTO;
 import com.example.demo.entity.dto.JavaSystemPermissionUpdateDTO;
@@ -20,4 +21,6 @@ public interface JavaSystemPermissionService {
     List<JavaSystemPermission> getList(String type, JavaSystemPermissionWrapper wrapper);
 
     Pagination<JavaSystemPermission> getPage(String type, JavaSystemPermissionWrapper wrapper, int page, int size);
+
+    List<Tree<Long>> getTree(String type, JavaSystemPermissionWrapper wrapper);
 }

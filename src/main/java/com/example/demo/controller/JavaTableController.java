@@ -1,10 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.JavaTable;
-import com.example.demo.entity.dto.Pagination;
 import com.example.demo.entity.dto.JavaTableAddDTO;
 import com.example.demo.entity.dto.JavaTableUpdateDTO;
 import com.example.demo.entity.dto.JavaTableWrapper;
+import com.example.demo.entity.dto.Pagination;
 import com.example.demo.service.JavaTableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -57,7 +57,7 @@ public class JavaTableController {
         return javaTableService.getList(wrapper, type);
     }
 
-    @GetMapping("/{type}/list")
+    @GetMapping("/{type}")
     public Pagination<JavaTable> get(JavaTableWrapper wrapper, @RequestParam int page, @RequestParam int size, @PathVariable String type) {
         return javaTableService.getPage(wrapper, page, size, type);
     }

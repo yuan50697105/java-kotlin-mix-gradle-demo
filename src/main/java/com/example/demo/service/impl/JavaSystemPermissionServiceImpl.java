@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import cn.hutool.core.lang.tree.Tree;
 import com.example.demo.converter.JavaSystemPermissionConverter;
 import com.example.demo.dao.factory.JavaSystemPermissionDaoFactory;
 import com.example.demo.dao.factory.JavaSystemRolePermissionDaoFactory;
@@ -56,5 +57,10 @@ public class JavaSystemPermissionServiceImpl implements JavaSystemPermissionServ
     @Override
     public Pagination<JavaSystemPermission> getPage(String type, JavaSystemPermissionWrapper wrapper, int page, int size) {
         return daoFactory.getPage(type, wrapper, page, size);
+    }
+
+    @Override
+    public List<Tree<Long>> getTree(String type, JavaSystemPermissionWrapper wrapper) {
+        return daoFactory.getTree(type, wrapper);
     }
 }

@@ -7,6 +7,6 @@ import lombok.Data;
 public class JavaSystemDepartmentAddDTO {
     private String name;
     private Integer state;
-    private Long parentId;
+    private Long parentId = 0L;
 
 }

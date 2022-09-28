@@ -57,7 +57,7 @@ public class JavaSystemRoleController {
         return service.getList(type, wrapper);
     }
 
-    @GetMapping("/{type}/list")
+    @GetMapping("/{type}")
     public Pagination<JavaSystemRole> get(JavaSystemRoleWrapper wrapper, @RequestParam int page, @RequestParam int size, @PathVariable String type) {
         return service.getPage(type, wrapper, page, size);
     }

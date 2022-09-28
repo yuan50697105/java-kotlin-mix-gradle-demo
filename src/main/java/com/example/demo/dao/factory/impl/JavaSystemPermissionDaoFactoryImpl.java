@@ -1,5 +1,8 @@
 package com.example.demo.dao.factory.impl;
 
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.lang.tree.Tree;
+import cn.hutool.core.lang.tree.TreeUtil;
 import cn.hutool.core.util.ObjUtil;
 import com.example.demo.constants.JavaDaoType;
 import com.example.demo.dao.api.JavaSystemPermissionDao;
@@ -75,6 +78,18 @@ public class JavaSystemPermissionDaoFactoryImpl implements JavaSystemPermissionD
     @Override
     public Pagination<JavaSystemPermission> getPage(String type, JavaSystemPermissionWrapper javaSystemUser, int page, int size) {
         return getJavaSystemPermissionDao(type).getPage(javaSystemUser, page, size);
+    }
+
+    @Override
+    public List<Tree<Long>> getTree(String type, JavaSystemPermissionWrapper wrapper) {
+        List<JavaSystemPermission> list = getList(type, wrapper);
+        return TreeUtil.build(list, 0L, (object, treeNode) -> {
+            treeNode.setId(object.getId());
+            treeNode.setParentId(object.getParentId());
+            treeNode.setName(object.getName());
+            treeNode.setWeight(object.getWeight());
+            BeanUtil.beanToMap(object).forEach(treeNode::putExtra);
+        });
     }
 
     private JavaSystemPermissionDao getJavaSystemPermissionDao(String type) {

@@ -21,9 +21,13 @@ public class JavaSystemPermission extends RichEntity {
     private Long id;
     private String name;
     private Integer type;
+    private Long parentId;
+    private Integer weight;
 
     public enum PermissionType {
-        MENU(1, "菜单");
+        MENU(1, "菜单"),
+        SUB_MENU(2, "子菜单"),
+        BUTTON(3, "按钮");
 
         private final Integer code;
         private final String name;

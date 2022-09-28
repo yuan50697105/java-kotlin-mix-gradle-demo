@@ -57,7 +57,7 @@ public class JavaCustomerInfoController {
         return service.getList(type, wrapper);
     }
 
-    @GetMapping("/{type}/list")
+    @GetMapping("/{type}")
     public Pagination<JavaCustomerInfo> get(JavaCustomerInfoWrapper wrapper, @RequestParam int page, @RequestParam int size, @PathVariable String type) {
         return service.getPage(type, wrapper, page, size);
     }
