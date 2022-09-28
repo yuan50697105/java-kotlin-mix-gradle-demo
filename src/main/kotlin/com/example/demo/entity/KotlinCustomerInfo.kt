@@ -11,7 +11,7 @@ import javax.persistence.Table
 @Table(name = "customer_info")
 @TableName("customer_info")
 @FluentMybatis(table = "customer_info")
-class KotlinCustomerInfo : RichEntity() {
+open class KotlinCustomerInfo : RichEntity() {
     @Id
     var id: Long? = null
     var code: String? = null
