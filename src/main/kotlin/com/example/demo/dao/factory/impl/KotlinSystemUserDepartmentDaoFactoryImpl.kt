@@ -2,7 +2,7 @@ package com.example.demo.dao.factory.impl
 
 import cn.hutool.core.util.ObjUtil
 import com.example.demo.constants.JavaDaoType
-import com.example.demo.dao.KotlinSystemUserDepartmentDao
+import com.example.demo.dao.api.KotlinSystemUserDepartmentDao
 import com.example.demo.dao.factory.KotlinSystemUserDepartmentDaoFactory
 import com.example.demo.entity.KotlinSystemUserDepartment
 import org.springframework.beans.factory.annotation.Autowired

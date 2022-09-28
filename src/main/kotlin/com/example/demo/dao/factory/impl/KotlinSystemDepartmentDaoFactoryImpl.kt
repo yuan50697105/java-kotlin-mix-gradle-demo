@@ -2,7 +2,7 @@ package com.example.demo.dao.factory.impl
 
 import cn.hutool.core.util.ObjUtil
 import com.example.demo.constants.JavaDaoType
-import com.example.demo.dao.KotlinSystemDepartmentDao
+import com.example.demo.dao.api.KotlinSystemDepartmentDao
 import com.example.demo.dao.factory.KotlinSystemDepartmentDaoFactory
 import com.example.demo.entity.KotlinSystemDepartment
 import com.example.demo.entity.dto.KotlinSystemDepartmentWrapper

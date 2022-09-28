@@ -2,7 +2,7 @@ package com.example.demo.dao.factory.impl;
 
 import cn.hutool.core.util.ObjUtil;
 import com.example.demo.constants.JavaDaoType;
-import com.example.demo.dao.JavaSystemDepartmentDao;
+import com.example.demo.dao.api.JavaSystemDepartmentDao;
 import com.example.demo.dao.factory.JavaSystemDepartmentDaoFactory;
 import com.example.demo.entity.JavaSystemDepartment;
 import com.example.demo.entity.dto.JavaSystemDepartmentWrapper;

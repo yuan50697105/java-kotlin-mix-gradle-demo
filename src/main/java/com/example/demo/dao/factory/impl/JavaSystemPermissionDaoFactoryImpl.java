@@ -2,7 +2,7 @@ package com.example.demo.dao.factory.impl;
 
 import cn.hutool.core.util.ObjUtil;
 import com.example.demo.constants.JavaDaoType;
-import com.example.demo.dao.JavaSystemPermissionDao;
+import com.example.demo.dao.api.JavaSystemPermissionDao;
 import com.example.demo.dao.factory.JavaSystemPermissionDaoFactory;
 import com.example.demo.entity.JavaSystemPermission;
 import com.example.demo.entity.dto.JavaSystemPermissionWrapper;

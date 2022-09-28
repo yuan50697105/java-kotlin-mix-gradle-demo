@@ -1,7 +1,7 @@
 package com.example.demo.dao.factory.impl
 
 import com.example.demo.constants.KotlinDaoType
-import com.example.demo.dao.KotlinSystemPermissionDao
+import com.example.demo.dao.api.KotlinSystemPermissionDao
 import com.example.demo.dao.factory.KotlinSystemPermissionDaoFactory
 import com.example.demo.entity.KotlinSystemPermission
 import com.example.demo.entity.dto.KotlinSystemPermissionWrapper

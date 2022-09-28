@@ -3,7 +3,7 @@ package com.example.demo.dao.factory.impl;
 import cn.hutool.core.util.ObjUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.example.demo.constants.JavaDaoType;
-import com.example.demo.dao.JavaSystemUserRoleDao;
+import com.example.demo.dao.api.JavaSystemUserRoleDao;
 import com.example.demo.dao.factory.JavaSystemUserRoleDaoFactory;
 import com.example.demo.entity.JavaSystemUserRole;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
 package com.example.demo.dao.factory.impl
 
 import com.example.demo.constants.KotlinDaoType
-import com.example.demo.dao.KotlinSystemRolePermissionDao
+import com.example.demo.dao.api.KotlinSystemRolePermissionDao
 import com.example.demo.dao.factory.KotlinSystemRolePermissionDaoFactory
 import com.example.demo.entity.KotlinSystemRolePermission
 import org.springframework.beans.factory.annotation.Autowired

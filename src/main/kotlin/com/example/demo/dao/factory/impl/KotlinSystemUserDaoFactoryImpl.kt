@@ -1,7 +1,7 @@
 package com.example.demo.dao.factory.impl
 
 import com.example.demo.constants.KotlinDaoType
-import com.example.demo.dao.KotlinSystemUserDao
+import com.example.demo.dao.api.KotlinSystemUserDao
 import com.example.demo.dao.factory.KotlinSystemUserDaoFactory
 import com.example.demo.entity.KotlinSystemUser
 import com.example.demo.entity.dto.KotlinSystemUserWrapper

@@ -2,7 +2,7 @@ package com.example.demo.dao.factory.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.example.demo.constants.JavaDaoType;
-import com.example.demo.dao.JavaTableDao;
+import com.example.demo.dao.api.JavaTableDao;
 import com.example.demo.dao.factory.JavaTableDaoFactory;
 import com.example.demo.entity.JavaTable;
 import com.example.demo.entity.dto.JavaTableWrapper;
